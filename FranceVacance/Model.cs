@@ -8,5 +8,6 @@ namespace FranceVacance
 {
     class Model
     {
+        private bool isActive;
     }
 }

@@ -9,5 +9,6 @@ namespace FranceVacance
     class Model
     {
         private bool isActive;
+        private bool abc;
     }
 }

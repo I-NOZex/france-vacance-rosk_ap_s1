@@ -8,8 +8,30 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="325,310,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+    <Grid Background="#FFD7D7EB" Margin="0,0,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid HorizontalAlignment="Left" Height="192" VerticalAlignment="Top" Width="1154" Background="#FF9CDADE" Margin="29,14,0,0" FocusVisualPrimaryBrush="#FF191990">
+            <TextBlock HorizontalAlignment="Left" Margin="181,7,0,0" Text="France Vacances 
+                        Travel Agency" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="78" Height="206" Width="1254" FontFamily="Yu Gothic UI Semilight" FontWeight="Bold" FocusVisualPrimaryBrush="Black" Foreground="#FF2F2F43"/>
+        </Grid>
+        <Button Content="Register" HorizontalAlignment="Left" Margin="1229,44,0,0" VerticalAlignment="Top" Height="130" Width="252" FontSize="36" Background="#FC00FF12"/>
+        <TextBox HorizontalAlignment="Left" Margin="31,234,0,0" Text="" VerticalAlignment="Top" Height="139" Width="511" FocusVisualPrimaryBrush="#FF4B00FF" FontSize="22" BorderBrush="#FF170207" RenderTransformOrigin="0.5,0.5" Foreground="Black">
+            <TextBox.RenderTransform>
+                <CompositeTransform ScaleX="-1" Rotation="179.826"/>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="1310,252,0,0" VerticalAlignment="Top" Height="104" Width="170" FontSize="36"/>
+        <ComboBox x:Name="ComboBox"  HorizontalAlignment="Left" Margin="587,234,0,0" VerticalAlignment="Top" Height="139" Width="158" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding List.items}"/>
+        <ComboBox  x:Name="ComboBox1" HorizontalAlignment="Left" Margin="780,235,0,0" VerticalAlignment="Top" Height="139" Width="155" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding List.balListtko}" />
+        <ComboBox x:Name="Combox2"  HorizontalAlignment="Left" Margin="975,235,0,0" VerticalAlignment="Top" Height="138" Width="140" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding List.sksks}"/>
+
+
+        <ComboBox x:Name="ComboBox3"  HorizontalAlignment="Left" Margin="1145,235,0,0" VerticalAlignment="Top" Height="138" Width="130" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding List.balListdasdastko}"/>
+        <Slider HorizontalAlignment="Left" Margin="31,502,0,0" VerticalAlignment="Top" Width="592" FontSize="24" ValueChanged="Slider_ValueChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="277,410,0,0" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36"/>
+
+
+
+
 
     </Grid>
 </Page>

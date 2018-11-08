@@ -25,6 +25,32 @@ namespace FranceVacance
         public MainPage()
         {
             this.InitializeComponent();
+            List<int> items=new List<int>(){1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
+            List<string> balListtko = new List<string>() { "January","February","March","April","May","June","July","August","September","October","November","December" };
+            List<int> sksks = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 };
+            List<string> balListdasdastko = new List<string>() { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+
+            this.ComboBox.ItemsSource = items;
+            this.ComboBox1.ItemsSource = balListtko;
+            this.Combox2.ItemsSource = sksks;
+            this.ComboBox3.ItemsSource = balListdasdastko;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+ 
+
+
+        }
+
+        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -18,16 +18,18 @@ namespace FranceVacance.ViewModel {
             string name;
             filters.TryGetValue("name", out name);
 
-            /*
+            
             List <AccommodationModel> filteredResults = new List<AccommodationModel>();
-            for (int i = 0; _accommodationCatalog.Accommodations.Count < i; i++) {
-                if(_accommodationCatalog.Accommodations[i].Name == name)
-                    filteredResults.Add(_accommodationCatalog.Accommodations[i]);
+            foreach (var _accommodation in _accommodationCatalog.Accommodations) {
+                if(_accommodation.Name == name)
+                    filteredResults.Add(_accommodation);
             }
-            */
-            return (List<AccommodationModel>)_accommodationCatalog.Accommodations.Where(
-                obj => obj.Name == name
-            );
+
+            /*return (List<AccommodationModel>)_accommodationCatalog.Accommodations.Where(
+                _accommodation => _accommodation.Name == name
+            );*/
+
+            return filteredResults;
         }
 
 

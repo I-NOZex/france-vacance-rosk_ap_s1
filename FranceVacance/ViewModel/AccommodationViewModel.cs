@@ -11,7 +11,8 @@ namespace FranceVacance.ViewModel {
     class AccommodationViewModel {
         private AccommodationCatalog _accommodationCatalog;
         public AccommodationViewModel() {
-            _accommodationCatalog = new AccommodationCatalog();
+            var filters = new Dictionary<string, string>()
+
         }
 
         public List<AccommodationModel> Search(Dictionary<String, String> filters) {

@@ -13,7 +13,7 @@ namespace FranceVacance.Data {
             foreach (var idx in Enumerable.Range(0, 10)) {
                 Accommodations.Add(
                     new AccommodationModel() {
-                        Id = idx,2
+                        Id = idx,
                         Address = "Address placeholder",
                         Availability = true,
                         Name = $"Demo accommodation #{idx}",

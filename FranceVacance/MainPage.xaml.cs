@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using FranceVacance.Data;
+using FranceVacance.Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -22,8 +24,8 @@ namespace FranceVacance
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public MainPage()
-        {
+        public MainPage() {
+            var a = new AccommodationCatalog();
             this.InitializeComponent();
             List<int> items=new List<int>(){1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
             List<string> balListtko = new List<string>() { "January","February","March","April","May","June","July","August","September","October","November","December" };

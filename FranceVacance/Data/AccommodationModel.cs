@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FranceVacance.Model {
-    class AccommodationModel {
+    public class AccommodationModel {
         private int _id { get; set; }
         private string _name { get; set; }
         private string _address { get; set; }

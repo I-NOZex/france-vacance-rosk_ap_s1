@@ -96,11 +96,14 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\AccommodationCatalog.cs" />
+    <Compile Include="Data\BookingCatalog.cs" />
+    <Compile Include="Data\BookingModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\AccommodationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AccommodationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

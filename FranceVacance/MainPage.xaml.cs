@@ -26,12 +26,8 @@ namespace FranceVacance
     public sealed partial class MainPage : Page
     {
         public MainPage() {
-            var a = new AccommodationCatalog();
-            var b = new BookingCatalog();
-            var c = new AccommodationViewModel();
 
             this.InitializeComponent();
-
         }
 
 
@@ -39,6 +35,10 @@ namespace FranceVacance
         private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
 
+        }
+
+        private void autobox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args) {
+            (this.DataContext as AccommodationViewModel).Search();
         }
     }
 }

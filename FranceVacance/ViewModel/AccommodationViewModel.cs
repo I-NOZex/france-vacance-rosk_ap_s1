@@ -1,28 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Globalization.NumberFormatting;
 using FranceVacance.Data;
+using FranceVacance.Helpers;
 using FranceVacance.Model;
+using M_WaldenHospital.ViewModel;
 
 namespace FranceVacance.ViewModel {
-    class AccommodationViewModel {
-        private AccommodationCatalog _accommodationCatalog;
-        public AccommodationViewModel() {
-            var filters = new Dictionary<string, string>()
+    public class AccommodationViewModel : ViewModelBase {
+        private AccommodationCatalog _accommodationCatalog { get; set; }
+        private AccommodationCatalog _accommodationCatalogFiltered { get; set; }
 
+        public SearchAccommodationModel SearchAccommodation { get; set; }
+
+        public AccommodationCatalog AccommodationCatalog {
+            get { return _accommodationCatalog; }
+            set {
+                _accommodationCatalog = value;
+            }
         }
 
-        public List<AccommodationModel> Search(Dictionary<String, String> filters) {
-            string name;
-            filters.TryGetValue("name", out name);
+        public AccommodationCatalog AccommodationCatalogFiltered {
+            get { return _accommodationCatalogFiltered; }
+            set {
+                _accommodationCatalogFiltered = value;
+            }
+        }
+        public AccommodationViewModel() {
+            AccommodationCatalog = new AccommodationCatalog();
+            AccommodationCatalogFiltered = new AccommodationCatalog();
+            SearchAccommodation = new SearchAccommodationModel();
+        }
 
-            
-            List <AccommodationModel> filteredResults = new List<AccommodationModel>();
+        public void Search() {
+
+            if (String.IsNullOrWhiteSpace(SearchAccommodation.Name) && SearchAccommodation.MaxPrice < 1) {
+                AccommodationCatalogFiltered.Accommodations = AccommodationCatalog.Accommodations;
+                OnPropertyChanged("AccommodationCatalogFiltered");
+            }
+
+            ObservableCollection<AccommodationModel> filteredResults = new ObservableCollection<AccommodationModel>();
             foreach (var _accommodation in _accommodationCatalog.Accommodations) {
-                if(_accommodation.Name == name)
+                if(_accommodation.Name.Contains(SearchAccommodation.Name) && _accommodation.Price <= SearchAccommodation.MaxPrice)
                     filteredResults.Add(_accommodation);
             }
 
@@ -30,7 +53,8 @@ namespace FranceVacance.ViewModel {
                 _accommodation => _accommodation.Name == name
             );*/
 
-            return filteredResults;
+            AccommodationCatalogFiltered.Accommodations = filteredResults;
+            OnPropertyChanged("AccommodationCatalogFiltered");
         }
 
 

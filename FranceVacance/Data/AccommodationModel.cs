@@ -54,5 +54,6 @@ namespace FranceVacance.Model {
 
         }
 
+
     }
 }

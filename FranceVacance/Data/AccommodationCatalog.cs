@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,9 +8,17 @@ using FranceVacance.Model;
 
 namespace FranceVacance.Data {
     public class AccommodationCatalog {
-        public List<AccommodationModel> Accommodations;
+        private ObservableCollection<AccommodationModel> _accommodations { get; set;  }
+
+        public ObservableCollection<AccommodationModel> Accommodations {
+            get { return _accommodations; }
+            set {
+                _accommodations = value;
+            }
+        }
+
         public AccommodationCatalog() {
-            Accommodations = new List<AccommodationModel>();
+            Accommodations = new ObservableCollection<AccommodationModel>();
             foreach (var idx in Enumerable.Range(0, 10)) {
                 Accommodations.Add(
                     new AccommodationModel() {
@@ -18,8 +27,8 @@ namespace FranceVacance.Data {
                         Availability = true,
                         Name = $"Demo accommodation #{idx}",
                         NumberOfRooms = new Random().Next(1, 8),
-                        Price = new Random().Next(70, 700000),
-                        Rating = new Random().Next(0, 5)
+                        Price = Math.Pow(3,idx),
+                        Rating = new Random().Next(0, 5),
                     }
                 );
             }

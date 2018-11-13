@@ -11,8 +11,8 @@ namespace FranceVacance.Helpers
         public double SelectedMaxPrice { get; set; }
         public string Name { get; set; }
         public double MaxPrice { get; set; }
-        public DateTime? CheckIn { get; set; }
-        public DateTime? CheckOut { get; set; }
+        public DateTimeOffset? CheckIn { get; set; }
+        public DateTimeOffset? CheckOut { get; set; }
 
         public SearchAccommodationFilters()
         {

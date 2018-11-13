@@ -56,11 +56,11 @@
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="pnl_checkin" Margin="0,0,0,10" VerticalAlignment="Top" Padding="10,0,5,0" HorizontalAlignment="Stretch">
                 <TextBlock x:Name="lbl_checkin" Text="Check-in Date" Padding="0,0,0,20" VerticalAlignment="Top" Height="25"/>
-                <CalendarDatePicker Date="{Binding SearchAccommodation.CheckIn, Mode=TwoWay}" x:Name="cbox_checkin" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Top" DateFormat="{}{month.full} {day.integer}, {year.full}"/>
+                <CalendarDatePicker Date="{Binding SearchAccommodation.CheckIn, Mode=TwoWay}" x:Name="cbox_checkin" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Top" DateFormat="{}{month.integer}/{day.integer}/{year.full}"/>
             </StackPanel>
             <StackPanel x:Name="pnl_checkout" Margin="0,0,0,10" VerticalAlignment="Top" Grid.Column="1" Padding="5,0,5,0">
                 <TextBlock x:Name="lbl_checkout" Text="Check-out Date" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" TextAlignment="Left" Padding="0,0,0,20" Height="25"/>
-                <CalendarDatePicker Date="{Binding SearchAccommodation.CheckOut, Mode=TwoWay}" x:Name="cbox_checkout" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                <CalendarDatePicker Date="{Binding SearchAccommodation.CheckOut, Mode=TwoWay}" x:Name="cbox_checkout" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Top" Padding="0,0,0,0" DateFormat="{}{month.integer}/{day.integer}/{year.full}"/>
             </StackPanel>
             <StackPanel x:Name="pnl_price" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Column="0" Padding="10,0,5,0" Grid.Row="1">
                 <TextBlock x:Name="lbl_price" Text="Price"  Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0,0,0,20" Height="25"/>
@@ -68,7 +68,7 @@
             </StackPanel>
             <StackPanel x:Name="pnl_people" Margin="0,0,0,10" VerticalAlignment="Top" Grid.Column="2" Padding="5,0,10,0" HorizontalAlignment="Stretch">
                 <TextBlock x:Name="lbl_noPeople" Text="Number of People"  Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0,0,0,20" Height="25"/>
-                <TextBox x:Name="txt_noPeople" Margin="0,5,0,5" Text="T" Padding="0,0,0,0" IsEnabled="False"/>
+                <TextBox x:Name="txt_noPeople" Margin="0,5,0,5" Text="" Padding="0,0,0,0" IsEnabled="False"/>
             </StackPanel>
             <StackPanel x:Name="pnl_features" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Column="1" Padding="5,0,10,0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
                 <TextBlock x:Name="lbl_features" Text="Location"  Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Padding="0,0,0,0"/>
@@ -88,7 +88,7 @@
                             <ColumnDefinition Width="33*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image  Source="Assets/Square150x150Logo.png" Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" Height="100" HorizontalAlignment="Left" />
+                        <Image  Source="../Assets/Square150x150Logo.png" Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" Height="100" HorizontalAlignment="Left" />
 
                         <StackPanel HorizontalAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="2">
                             <TextBlock Text="{Binding Name, Mode=TwoWay}" Grid.Column="1" Margin="0,0,10,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></TextBlock>

@@ -8,7 +8,6 @@ using Windows.Globalization.NumberFormatting;
 using FranceVacance.Data;
 using FranceVacance.Helpers;
 using FranceVacance.Model;
-using M_WaldenHospital.ViewModel;
 
 namespace FranceVacance.ViewModel {
     public class AccommodationViewModel : ViewModelBase {
@@ -49,9 +48,11 @@ namespace FranceVacance.ViewModel {
                     filteredResults.Add(_accommodation);
             }
 
-            /*return (List<AccommodationModel>)_accommodationCatalog.Accommodations.Where(
-                _accommodation => _accommodation.Name == name
-            );*/
+            //
+            //
+            //turn (List<AccommodationModel>)_accommodationCatalog.Accommodations.Where(
+            //    _accommodation => _accommodation.Name == name
+            //);
 
             AccommodationCatalogFiltered.Accommodations = filteredResults;
             OnPropertyChanged("AccommodationCatalogFiltered");

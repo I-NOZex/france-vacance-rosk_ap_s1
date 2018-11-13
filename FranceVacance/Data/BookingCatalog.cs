@@ -16,19 +16,6 @@ namespace FranceVacance.Data {
         {
             Bookings = new ObservableCollection<BookingModel>();
 
-            BookingModel One = new BookingModel();
-           
-            One.TotalPrice = 999.99;
-            One.CheckIn = DateTime.Today;
-            One.CheckOut = DateTime.Today.AddDays(1);
-            
-            Bookings.Add(One);
 
- BookingModel One1 = new BookingModel();
-            One1.TotalPrice = 999.8899;
-            One1.CheckIn = DateTime.Today;
-            One1.CheckOut = DateTime.Today.AddDays(1);
-            Bookings.Add(One1);
-        }
     }
 }

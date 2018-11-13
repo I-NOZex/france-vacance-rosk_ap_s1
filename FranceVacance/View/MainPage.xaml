@@ -56,11 +56,11 @@
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="pnl_checkin" Margin="0,0,0,10" VerticalAlignment="Top" Padding="10,0,5,0" HorizontalAlignment="Stretch">
                 <TextBlock x:Name="lbl_checkin" Text="Check-in Date" Padding="0,0,0,20" VerticalAlignment="Top" Height="25"/>
-                <CalendarDatePicker x:Name="cbox_checkin" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Top"/>
+                <CalendarDatePicker Date="{Binding SearchAccommodation.CheckIn, Mode=TwoWay}" x:Name="cbox_checkin" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Top" DateFormat="{}{month.full} {day.integer}, {year.full}"/>
             </StackPanel>
             <StackPanel x:Name="pnl_checkout" Margin="0,0,0,10" VerticalAlignment="Top" Grid.Column="1" Padding="5,0,5,0">
                 <TextBlock x:Name="lbl_checkout" Text="Check-out Date" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" TextAlignment="Left" Padding="0,0,0,20" Height="25"/>
-                <CalendarDatePicker x:Name="cbox_checkout" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                <CalendarDatePicker Date="{Binding SearchAccommodation.CheckOut, Mode=TwoWay}" x:Name="cbox_checkout" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Top" Padding="0,0,0,0"/>
             </StackPanel>
             <StackPanel x:Name="pnl_price" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Column="0" Padding="10,0,5,0" Grid.Row="1">
                 <TextBlock x:Name="lbl_price" Text="Price"  Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0,0,0,20" Height="25"/>

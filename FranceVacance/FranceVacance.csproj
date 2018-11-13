@@ -98,7 +98,7 @@
     <Compile Include="Data\AccommodationCatalog.cs" />
     <Compile Include="Data\BookingCatalog.cs" />
     <Compile Include="Data\BookingModel.cs" />
-    <Compile Include="Helpers\SearchAccommodationModel.cs" />
+    <Compile Include="Helpers\SearchAccommodationFilters.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -12,10 +12,10 @@ namespace FranceVacance.Data {
     {
         public ObservableCollection<BookingModel> Bookings;
 
-        public BookingCatalog()
-        {
+        public BookingCatalog() {
             Bookings = new ObservableCollection<BookingModel>();
 
 
+        }
     }
 }

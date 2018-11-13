@@ -21,13 +21,5 @@ namespace FranceVacance.Data {
         public DateTime CheckOut { get; set; }
         public AccommodationModel Accommodation { get; set; }
 
-
-
-
-
-
-
-
-
     }
 }

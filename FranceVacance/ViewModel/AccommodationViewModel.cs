@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,26 +13,11 @@ namespace FranceVacance.ViewModel {
     public class AccommodationViewModel : ViewModelBase {
         private AccommodationCatalog _accommodationCatalogFiltered { get; set; }
 
-        private AccommodationCatalog _accommodationCatalog { get; set; }
-        public AccommodationCatalog AccommodationCatalog {
-            get { return _accommodationCatalog; }
-            set {
-                _accommodationCatalog = value;
-            }
-        }
+        public AccommodationCatalog AccommodationCatalog { get; set; }
 
-        private SearchAccommodationModel _searchAccommodation { get; set; }
-        public SearchAccommodationModel SearchAccommodation {
-            get => _searchAccommodation;
-            set => _searchAccommodation = value;
-        }
+        public SearchAccommodationFilters SearchAccommodation { get; set; }
 
-        private BookingCatalog _bookingCatalog { get; set; }
-        public BookingCatalog BookingCatalog {
-            get => _bookingCatalog;
-            set => _bookingCatalog = value;
-        }
-
+        public BookingCatalog BookingCatalog { get; set; }
         public AccommodationCatalog AccommodationCatalogFiltered {
             get { return _accommodationCatalogFiltered; }
             set {
@@ -41,8 +27,8 @@ namespace FranceVacance.ViewModel {
         public AccommodationViewModel() {
             AccommodationCatalog = new AccommodationCatalog();
             AccommodationCatalogFiltered = new AccommodationCatalog();
-            SearchAccommodation = new SearchAccommodationModel();
-            BookingCatalog BookingCatalog = new BookingCatalog();
+            SearchAccommodation = new SearchAccommodationFilters();
+            BookingCatalog = new BookingCatalog();
 
             BookingModel One = new BookingModel();
 
@@ -57,6 +43,11 @@ namespace FranceVacance.ViewModel {
             One1.CheckIn = DateTime.Today;
             One1.CheckOut = DateTime.Today.AddDays(1);
             BookingCatalog.Bookings.Add(One1);
+
+            SearchAccommodation.CheckIn = DateTime.Today;
+            SearchAccommodation.CheckOut = DateTime.Today.AddDays(1);
+            SearchAccommodation.MaxPrice = FindMaxPrice();
+            SearchAccommodation.SelectedMaxPrice = SearchAccommodation.MaxPrice;
         }
 
 
@@ -69,37 +60,38 @@ namespace FranceVacance.ViewModel {
             }
 
             ObservableCollection<AccommodationModel> filteredResults = new ObservableCollection<AccommodationModel>();
-            foreach (var _accommodation in _accommodationCatalog.Accommodations) {
-                if(_accommodation.Name.Contains(SearchAccommodation.Name) && _accommodation.Price <= SearchAccommodation.MaxPrice)
+            foreach (var _accommodation in AccommodationCatalog.Accommodations) {
+                if(_accommodation.Name.Contains(SearchAccommodation.Name) && _accommodation.Price <= SearchAccommodation.SelectedMaxPrice)
                     filteredResults.Add(_accommodation);
 
 
-                foreach (var _booking in _bookingCatalog.Bookings) {
+                /*foreach (var _booking in BookingCatalog.Bookings) {
                     //check if the current _accommodation has bookings
                     if (_accommodation == _booking.Accommodation) {
-                        //check for date collision 
-
-                        if (!(_booking.CheckIn < SearchAccommodation.CheckOut &&
-                              SearchAccommodation.CheckIn < _booking.CheckOut)) {
-
+                        Debug.WriteLine($"booking checkin: {_booking.CheckIn} | booking checkout: {_booking.CheckOut}");
+                        Debug.WriteLine($"searched checkin: {SearchAccommodation.CheckIn} | searched checkout: {SearchAccommodation.CheckOut}");
+                        Debug.WriteLine("_______________________________");
+                        //check if the accommodation DOESN'T have a booking in the searched date
+                        if ((_booking.CheckIn < SearchAccommodation.CheckOut &&
+                              SearchAccommodation.CheckIn < _booking.CheckOut) == false) {
+                            filteredResults.Add(_accommodation);
                         }
 
                     }
-                }
+                }*/
             }
-
-            /*return (List<AccommodationModel>)_accommodationCatalog.Accommodations.Where(
-                _accommodation => _accommodation.Name == name
-            );*/
 
             AccommodationCatalogFiltered.Accommodations = filteredResults;
             OnPropertyChanged("AccommodationCatalogFiltered");
         }
 
+        public double FindMaxPrice() {
+            double maxPrice = 0;
+            foreach (var _accommodation in AccommodationCatalog.Accommodations) {
+                maxPrice = _accommodation.Price > maxPrice ? _accommodation.Price : maxPrice;
+            }
 
-
-        public int sum(int num1, int num2) {
-            return num1 + num2;
+            return maxPrice;
         }
     }
 }

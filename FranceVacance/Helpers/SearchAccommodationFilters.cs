@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FranceVacance.Helpers
 {
-    public class SearchAccommodationModel
+    public class SearchAccommodationFilters
     {
         public double SelectedMaxPrice { get; set; }
         public string Name { get; set; }
@@ -14,7 +14,7 @@ namespace FranceVacance.Helpers
         public DateTime? CheckIn { get; set; }
         public DateTime? CheckOut { get; set; }
 
-        public SearchAccommodationModel()
+        public SearchAccommodationFilters()
         {
 
 

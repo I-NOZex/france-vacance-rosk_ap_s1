@@ -99,7 +99,7 @@
     <Compile Include="Data\BookingCatalog.cs" />
     <Compile Include="Data\BookingModel.cs" />
     <Compile Include="Helpers\SearchAccommodationModel.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\AccommodationModel.cs" />
@@ -129,7 +129,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -8,7 +8,6 @@ using Windows.Globalization.NumberFormatting;
 using FranceVacance.Data;
 using FranceVacance.Helpers;
 using FranceVacance.Model;
-
 namespace FranceVacance.ViewModel {
     public class AccommodationViewModel : ViewModelBase {
         private AccommodationCatalog _accommodationCatalog { get; set; }
@@ -33,6 +32,8 @@ namespace FranceVacance.ViewModel {
             AccommodationCatalog = new AccommodationCatalog();
             AccommodationCatalogFiltered = new AccommodationCatalog();
             SearchAccommodation = new SearchAccommodationModel();
+
+
         }
 
         public void Search() {
@@ -48,11 +49,9 @@ namespace FranceVacance.ViewModel {
                     filteredResults.Add(_accommodation);
             }
 
-            //
-            //
-            //turn (List<AccommodationModel>)_accommodationCatalog.Accommodations.Where(
-            //    _accommodation => _accommodation.Name == name
-            //);
+            /*return (List<AccommodationModel>)_accommodationCatalog.Accommodations.Where(
+                _accommodation => _accommodation.Name == name
+            );*/
 
             AccommodationCatalogFiltered.Accommodations = filteredResults;
             OnPropertyChanged("AccommodationCatalogFiltered");

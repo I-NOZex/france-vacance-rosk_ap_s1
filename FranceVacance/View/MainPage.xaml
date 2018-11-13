@@ -17,7 +17,7 @@
 
     <Grid Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
 
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="25*"/>
@@ -64,26 +64,15 @@
             </StackPanel>
             <StackPanel x:Name="pnl_price" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Column="0" Padding="10,0,5,0" Grid.Row="1">
                 <TextBlock x:Name="lbl_price" Text="Price"  Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0,0,0,20" Height="25"/>
-                <Slider Value="{Binding SearchAccommodation.MaxPrice, Mode=TwoWay}" x:Name="slide_price" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="24" ValueChanged="Slider_ValueChanged" Padding="0,0,0,0" TickPlacement="Outside"/>
+                <Slider Value="{Binding SearchAccommodation.SelectedMaxPrice, Mode=TwoWay}" Maximum="{ Binding SearchAccommodation.MaxPrice}" x:Name="slide_price" HorizontalAlignment="Stretch" Margin="0,0,0.2,0" VerticalAlignment="Center" FontSize="24" ValueChanged="Slider_ValueChanged" Padding="0,0,0,0" TickPlacement="Outside"/>
             </StackPanel>
             <StackPanel x:Name="pnl_people" Margin="0,0,0,10" VerticalAlignment="Top" Grid.Column="2" Padding="5,0,10,0" HorizontalAlignment="Stretch">
                 <TextBlock x:Name="lbl_noPeople" Text="Number of People"  Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0,0,0,20" Height="25"/>
-                <TextBox x:Name="txt_noPeople" Margin="0,5,0,5" Text="TextBox" Padding="0,0,0,0"/>
+                <TextBox x:Name="txt_noPeople" Margin="0,5,0,5" Text="T" Padding="0,0,0,0" IsEnabled="False"/>
             </StackPanel>
             <StackPanel x:Name="pnl_features" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Column="1" Padding="5,0,10,0" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
-                <TextBlock x:Name="lbl_features" Text="Price"  Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Padding="0,0,0,0"/>
-                <Grid HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Padding="0,8,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="152*"/>
-                        <ColumnDefinition Width="151*"/>
-                        <ColumnDefinition Width="152*"/>
-                        <ColumnDefinition Width="151*"/>
-                    </Grid.ColumnDefinitions>
-                    <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
-                    <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Column="2" Grid.ColumnSpan="2"/>
-                    <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Column="1"/>
-                    <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Grid.Column="3"/>
-                </Grid>
+                <TextBlock x:Name="lbl_features" Text="Location"  Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Padding="0,0,0,0"/>
+                <TextBox IsEnabled="False"/>
             </StackPanel>
         </Grid>
         <ListView ItemsSource="{Binding AccommodationCatalogFiltered.Accommodations, Mode=TwoWay}" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Stretch" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="4">

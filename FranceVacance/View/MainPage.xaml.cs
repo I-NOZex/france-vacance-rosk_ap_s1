@@ -38,7 +38,12 @@ namespace FranceVacance
         }
 
         private void autobox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args) {
-            (this.DataContext as AccommodationViewModel).Search();
+            var VM = (this.DataContext as AccommodationViewModel);
+                VM.Search(
+                    byName: VM.SearchAccommodation.Name.Length > 0,
+                    byMaxPrice: true,
+                    byDate: true
+                );
         }
     }
 }

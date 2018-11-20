@@ -9,7 +9,6 @@ namespace FranceVacance.Model {
         private int _id { get; set; }
         private string _name { get; set; }
         private string _address { get; set; }
-        private bool _availability { get; set; }
         private double _price { get; set; }
         private int _numberOfRooms { get; set; }
         private int _rating { get; set; }
@@ -27,11 +26,6 @@ namespace FranceVacance.Model {
         public string Address {
             get { return _address; }
             set { _address = value; }
-        }
-
-        public bool Availability {
-            get { return _availability; }
-            set { _availability = value; }
         }
 
         public double Price {

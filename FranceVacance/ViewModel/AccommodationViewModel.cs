@@ -53,7 +53,7 @@ namespace FranceVacance.ViewModel {
 
 
 
-        public void Search() {
+        public AccommodationCatalog Search(bool byName = false, bool byMaxPrice = false, bool byDate = false) {
 
             if (String.IsNullOrWhiteSpace(SearchAccommodation.Name) && SearchAccommodation.MaxPrice < 1) {
                 AccommodationCatalogFiltered.Accommodations = AccommodationCatalog.Accommodations;
@@ -62,11 +62,16 @@ namespace FranceVacance.ViewModel {
 
             ObservableCollection<AccommodationModel> filteredResults = new ObservableCollection<AccommodationModel>();
             foreach (var _accommodation in AccommodationCatalog.Accommodations) {
-                bool isMatch = false;
-                if (_accommodation.Name.Contains(SearchAccommodation.Name) &&
-                    _accommodation.Price <= SearchAccommodation.SelectedMaxPrice)
-                    isMatch = true;
 
+                bool isNameMatch = false;
+                bool isPriceMatch = false;
+                List<bool> isDateMatch = new List<bool>();
+
+                if (!string.IsNullOrEmpty(SearchAccommodation.Name) && _accommodation.Name.Contains(SearchAccommodation.Name))
+                    isNameMatch = true;
+
+                if (_accommodation.Price <= SearchAccommodation.SelectedMaxPrice)
+                    isPriceMatch = true;
 
                 foreach (var _booking in BookingCatalog.Bookings) {
                     //check if the current _accommodation has bookings
@@ -79,22 +84,25 @@ namespace FranceVacance.ViewModel {
                         //check if the accommodation DOESN'T have a booking in the searched date
                         if ((_booking.CheckIn < SearchAccommodation.CheckOut &&
                               SearchAccommodation.CheckIn < _booking.CheckOut) == false) {
-                            isMatch = true;
+                            isDateMatch.Add(true);
+                        } else {
+                            isDateMatch.Add(false);
                         }
-                        else {
-                            isMatch = false;
-                        }
-
                     }
                 }
 
-                if (isMatch) {
+                if (byName == isNameMatch && 
+                    byMaxPrice == isPriceMatch && 
+                    ((byDate == isDateMatch.TrueForAll(d => d == true)))
+                    ) {
                     filteredResults.Add(_accommodation);
                 }
             }
 
             AccommodationCatalogFiltered.Accommodations = filteredResults;
             OnPropertyChanged("AccommodationCatalogFiltered");
+
+            return AccommodationCatalogFiltered;
         }
 
         public double FindMaxPrice() {

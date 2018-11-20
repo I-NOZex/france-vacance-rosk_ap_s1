@@ -16,12 +16,9 @@ namespace FranceVacance.Helpers
 
         public SearchAccommodationFilters()
         {
-
-
             Name = "";
             CheckIn = null;
             CheckOut = null;
-
         }
     }
 }

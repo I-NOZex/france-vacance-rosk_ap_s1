@@ -24,7 +24,6 @@ namespace FranceVacance.Data {
                     new AccommodationModel() {
                         Id = idx,
                         Address = "Address placeholder",
-                        Availability = true,
                         Name = $"Demo accommodation #{idx}",
                         NumberOfRooms = new Random().Next(1, 8),
                         Price = Math.Pow(3,idx),

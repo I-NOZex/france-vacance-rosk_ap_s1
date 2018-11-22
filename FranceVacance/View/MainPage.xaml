@@ -16,6 +16,7 @@
 
     <Page.Resources>
         <helpers:CurrencyToDkkConverter x:Key="CurrencyToDkkConverter" />
+        <helpers:DateOperationsConverter x:Key="DateOperationsConverter" />
     </Page.Resources>
 
     <Page.DataContext>
@@ -98,6 +99,7 @@
                 <CalendarDatePicker Date="{Binding SearchAccommodation.CheckIn, Mode=TwoWay}"
                                     x:Name="cbox_checkin"
                                     HorizontalAlignment="Stretch"
+                                    MaxDate="{Binding ElementName=cbox_checkout, Path=Date, Converter={StaticResource DateOperationsConverter}, ConverterParameter=SubtractOneDay}"
                                     Margin="0,5,0,5"
                                     VerticalAlignment="Top"
                                     DateFormat="{}{month.integer}/{day.integer}/{year.full}" />
@@ -120,6 +122,7 @@
                                     HorizontalAlignment="Stretch"
                                     Margin="0,5,0,5"
                                     VerticalAlignment="Top"
+                                    MinDate="{Binding ElementName=cbox_checkin, Path=Date , Converter={StaticResource DateOperationsConverter}, ConverterParameter=AddOneDay}"
                                     Padding="0,0,0,0"
                                     DateFormat="{}{month.integer}/{day.integer}/{year.full}" />
             </StackPanel>

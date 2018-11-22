@@ -13,8 +13,8 @@ namespace Tests
     [TestClass]
     public class AccommodationViewModelTest {
 
-        private AccommodationViewModel InitialSetup() {
-            AccommodationViewModel VM = new AccommodationViewModel();
+        private MainViewModel InitialSetup() {
+            MainViewModel VM = new MainViewModel();
             VM.AccommodationCatalog = new AccommodationCatalog();
             VM.AccommodationCatalog.Accommodations = new ObservableCollection<AccommodationModel>() {
                 new AccommodationModel() {
@@ -49,7 +49,7 @@ namespace Tests
         [TestMethod]
         public void Search_By_Name() {
 
-            AccommodationViewModel VM = InitialSetup();
+            MainViewModel VM = InitialSetup();
 
             AccommodationCatalog AccommodationCatalogFiltered = new AccommodationCatalog();
             AccommodationCatalogFiltered.Accommodations.Clear();
@@ -73,7 +73,7 @@ namespace Tests
         [TestMethod]
         public void Search_By_MaxPrice() {
 
-            AccommodationViewModel VM = InitialSetup();
+            MainViewModel VM = InitialSetup();
 
             AccommodationCatalog AccommodationCatalogFiltered = new AccommodationCatalog();
             AccommodationCatalogFiltered.Accommodations.Clear();
@@ -96,7 +96,7 @@ namespace Tests
         [TestMethod]
         public void Search_By_Name_AND_MaxPrice() {
 
-            AccommodationViewModel VM = InitialSetup();
+            MainViewModel VM = InitialSetup();
 
             AccommodationCatalog AccommodationCatalogFiltered = new AccommodationCatalog();
             AccommodationCatalogFiltered.Accommodations.Clear();

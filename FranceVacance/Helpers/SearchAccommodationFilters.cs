@@ -10,6 +10,7 @@ namespace FranceVacance.Helpers
     {
         public double SelectedMaxPrice { get; set; }
         public string Name { get; set; }
+        public string Address { get; set; }
         public double MaxPrice { get; set; }
         public DateTimeOffset? CheckIn { get; set; }
         public DateTimeOffset? CheckOut { get; set; }
@@ -17,6 +18,7 @@ namespace FranceVacance.Helpers
         public SearchAccommodationFilters()
         {
             Name = "";
+            Address = "";
             CheckIn = null;
             CheckOut = null;
         }

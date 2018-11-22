@@ -32,19 +32,16 @@ namespace FranceVacance
 
 
 
-        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
-        {
-
-        }
-
         private void autobox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args) {
-            var VM = (this.DataContext as AccommodationViewModel);
+            var VM = (this.DataContext as MainViewModel);
                 VM.Search(
                     byName: VM.SearchAccommodation.Name.Length > 0,
                     byMaxPrice: true,
+                    byAddress: VM.SearchAccommodation.Address.Length > 0,
                     byDate: true
                 );
         }
+
     }
 }
 

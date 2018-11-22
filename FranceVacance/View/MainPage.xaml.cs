@@ -37,6 +37,7 @@ namespace FranceVacance
                 VM.Search(
                     byName: VM.SearchAccommodation.Name.Length > 0,
                     byMaxPrice: true,
+                    byAddress: VM.SearchAccommodation.Address.Length > 0,
                     byDate: true
                 );
         }

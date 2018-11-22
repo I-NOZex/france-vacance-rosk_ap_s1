@@ -202,7 +202,7 @@
                            VerticalAlignment="Top"
                            Padding="0,0,0,0" />
                 <TextBox Name="txt_address"
-                         Text="{Binding SearchAccommodation.Accommodation}"/>
+                         Text="{Binding SearchAccommodation.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Grid>
         <ListView ItemsSource="{Binding AccommodationCatalogFiltered.Accommodations, Mode=TwoWay}"

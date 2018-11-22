@@ -53,25 +53,38 @@ namespace FranceVacance.ViewModel {
 
 
 
-        public AccommodationCatalog Search(bool byName = false, bool byMaxPrice = false, bool byDate = false) {
+        public AccommodationCatalog Search(
+            bool byName = false, 
+            bool byMaxPrice = false, 
+            bool byAddress = false,
+            bool byDate = false
+        ) {
 
             if (String.IsNullOrWhiteSpace(SearchAccommodation.Name) && SearchAccommodation.MaxPrice < 1) {
                 AccommodationCatalogFiltered.Accommodations = AccommodationCatalog.Accommodations;
                 OnPropertyChanged("AccommodationCatalogFiltered");
             }
 
-            ObservableCollection<AccommodationModel> filteredResults = new ObservableCollection<AccommodationModel>();
+            ObservableCollection<AccommodationModel> filteredResults = 
+                new ObservableCollection<AccommodationModel>();
             foreach (var _accommodation in AccommodationCatalog.Accommodations) {
 
                 bool isNameMatch = false;
                 bool isPriceMatch = false;
+                bool isAddressMatch = false;
                 List<bool> isDateMatch = new List<bool>();
 
-                if (!string.IsNullOrEmpty(SearchAccommodation.Name) && _accommodation.Name.Contains(SearchAccommodation.Name))
+                if ( !string.IsNullOrEmpty(SearchAccommodation.Name) && 
+                    _accommodation.Name.ToLower().Contains(SearchAccommodation.Name.ToLower())                )
                     isNameMatch = true;
 
                 if (_accommodation.Price <= SearchAccommodation.SelectedMaxPrice)
                     isPriceMatch = true;
+
+                if (!string.IsNullOrEmpty(SearchAccommodation.Address) &&
+                    _accommodation.Address.ToLower().Contains(SearchAccommodation.Address.ToLower())
+                )
+                    isAddressMatch = true;
 
                 foreach (var _booking in BookingCatalog.Bookings) {
                     //check if the current _accommodation has bookings
@@ -93,6 +106,7 @@ namespace FranceVacance.ViewModel {
 
                 if (byName == isNameMatch && 
                     byMaxPrice == isPriceMatch && 
+                    byAddress == isAddressMatch &&
                     ((byDate == isDateMatch.TrueForAll(d => d == true)))
                     ) {
                     filteredResults.Add(_accommodation);

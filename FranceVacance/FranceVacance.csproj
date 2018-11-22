@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DateOperationsConverter.cs" />
     <Compile Include="Helpers\CurrencyToDkkConverter.cs" />
     <Compile Include="Model\AccommodationCatalog.cs" />
     <Compile Include="Model\BookingCatalog.cs" />

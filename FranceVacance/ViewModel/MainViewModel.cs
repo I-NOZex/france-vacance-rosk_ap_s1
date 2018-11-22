@@ -10,7 +10,7 @@ using FranceVacance.Data;
 using FranceVacance.Helpers;
 using FranceVacance.Model;
 namespace FranceVacance.ViewModel {
-    public class AccommodationViewModel : ViewModelBase {
+    public class MainViewModel : ViewModelBase {
         private AccommodationCatalog _accommodationCatalogFiltered { get; set; }
 
         public AccommodationCatalog AccommodationCatalog { get; set; }
@@ -24,7 +24,7 @@ namespace FranceVacance.ViewModel {
                 _accommodationCatalogFiltered = value;
             }
         }
-        public AccommodationViewModel() {
+        public MainViewModel() {
             AccommodationCatalog = new AccommodationCatalog();
             AccommodationCatalogFiltered = new AccommodationCatalog();
             SearchAccommodation = new SearchAccommodationFilters();

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using FranceVacance.Code.Common;
 
 namespace FranceVacance.Code.Accommodation {
-    public class AccommodationViewModel {
+    public class AccommodationViewModel : ViewModelBase {
         private ObservableCollection<AccommodationModel> _accommodations { get; set;  }
         private AccommodationService _accommodationService;
 
@@ -13,6 +15,9 @@ namespace FranceVacance.Code.Accommodation {
             get { return _accommodations; }
             set {
                 _accommodations = value;
+                OnPropertyChanged("Accommodations");
+                OnPropertyChanged("AccommodationsFiltered");
+                Debug.WriteLine("Accommodations changed");
             }
         }
 
@@ -23,7 +28,7 @@ namespace FranceVacance.Code.Accommodation {
         }
 
         public AccommodationViewModel() {
-            LoadData();
+            //LoadData();
             //_accommodationService.LoadData();
 
 

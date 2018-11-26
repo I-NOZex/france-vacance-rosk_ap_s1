@@ -188,7 +188,7 @@
                          Text="{Binding SearchAccommodation.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </Grid>
-        <ListView ItemsSource="{Binding AccommodationCatalogFiltered.Accommodations, Mode=TwoWay}"
+        <ListView ItemsSource="{Binding AccommodationsFiltered.Accommodations, Mode=TwoWay}"
                   HorizontalAlignment="Stretch"
                   Margin="0,0,0,0"
                   Grid.Row="3"

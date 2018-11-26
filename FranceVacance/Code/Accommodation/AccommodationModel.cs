@@ -38,10 +38,5 @@
         }
 
 
-        public AccommodationModel() {
-
-        }
-
-
     }
 }

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
-namespace FranceVacance.Helpers {
+namespace FranceVacance.Code.Helpers {
     public class DateOperationsConverter : IValueConverter {
         public object Convert(object value, Type targetType, object parameter, string language) {
             string operation = parameter as string;

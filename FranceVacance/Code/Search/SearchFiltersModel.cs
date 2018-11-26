@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FranceVacance.Helpers
+namespace FranceVacance.Code.Search
 {
-    public class SearchAccommodationFilters
-    {
+    public class SearchFiltersModel {
         public double SelectedMaxPrice { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
@@ -15,7 +10,7 @@ namespace FranceVacance.Helpers
         public DateTimeOffset? CheckIn { get; set; }
         public DateTimeOffset? CheckOut { get; set; }
 
-        public SearchAccommodationFilters()
+        public SearchFiltersModel()
         {
             Name = "";
             Address = "";

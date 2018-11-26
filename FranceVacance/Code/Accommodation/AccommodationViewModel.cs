@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using FranceVacance.Model;
 
-namespace FranceVacance.Data {
-    public class AccommodationCatalog {
+namespace FranceVacance.Code.Accommodation {
+    public class AccommodationViewModel {
         private ObservableCollection<AccommodationModel> _accommodations { get; set;  }
+        private AccommodationService _accommodationService;
 
         public ObservableCollection<AccommodationModel> Accommodations {
             get { return _accommodations; }
@@ -17,8 +16,18 @@ namespace FranceVacance.Data {
             }
         }
 
-        public AccommodationCatalog() {
+        public async Task LoadData() {
+            _accommodationService = new AccommodationService();
             Accommodations = new ObservableCollection<AccommodationModel>();
+            Accommodations = await _accommodationService.LoadDataAsync();
+        }
+
+        public AccommodationViewModel() {
+            LoadData();
+            //_accommodationService.LoadData();
+
+
+            /*Accommodations = new ObservableCollection<AccommodationModel>();
             Random r = new Random();
             List<string> addresses = new List<string>() {
                 "Paris",
@@ -42,7 +51,8 @@ namespace FranceVacance.Data {
                         Rating = r.Next(0, 5),
                     }
                 );
-            }
+            }*/
+
         }
     }
 }

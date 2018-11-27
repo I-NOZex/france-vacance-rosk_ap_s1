@@ -9,15 +9,15 @@ using FranceVacance.Code.Common;
 
 namespace FranceVacance.Code.Search {
     public class SearchViewModel : ViewModelBase {
-        private Accommodation.AccommodationViewModel _accommodationsFiltered { get; set; }
+        private AccommodationViewModel _accommodationsFiltered { get; set; }
 
-        public Accommodation.AccommodationViewModel AccommodationViewModel { get; set; }
+        public AccommodationViewModel AccommodationViewModel { get; set; }
 
         public SearchFiltersViewModel SearchAccommodation { get; set; }
 
-        public Booking.BookingCatalog BookingCatalog { get; set; }
+        public Booking.BookingViewModel BookingViewModel { get; set; }
 
-        public Accommodation.AccommodationViewModel AccommodationsFiltered {
+        public AccommodationViewModel AccommodationsFiltered {
             get { return _accommodationsFiltered; }
             set {
                 _accommodationsFiltered = value;
@@ -27,6 +27,7 @@ namespace FranceVacance.Code.Search {
         public async Task InitializeData() {
             await AccommodationViewModel.LoadData();
             await AccommodationsFiltered.LoadData();
+            await BookingViewModel.LoadData();
             SearchAccommodation.MaxPrice = FindMaxPrice();
             SearchAccommodation.SelectedMaxPrice = SearchAccommodation.MaxPrice;
             Search(
@@ -42,28 +43,15 @@ namespace FranceVacance.Code.Search {
             AccommodationViewModel = new AccommodationViewModel();
             AccommodationsFiltered = new AccommodationViewModel();
             SearchAccommodation = new SearchFiltersViewModel();
+            BookingViewModel = new Booking.BookingViewModel();
 
             InitializeData();
 
             SearchAccommodation.CheckIn = DateTime.Today;
             SearchAccommodation.CheckOut = DateTime.Today.AddDays(1);
 
-            BookingCatalog = new Booking.BookingCatalog();
 
-            Booking.BookingModel One = new Booking.BookingModel();
 
-            One.TotalPrice = 999.99;
-            One.CheckIn = DateTime.Today;
-            One.CheckOut = DateTime.Today.AddDays(1);
-            One.Accommodation = AccommodationViewModel.Accommodations.FirstOrDefault();
-            BookingCatalog.Bookings.Add(One);
-
-            Booking.BookingModel One1 = new Booking.BookingModel();
-            One1.TotalPrice = 999.8899;
-            One1.CheckIn = DateTime.Today.AddDays(2); ;
-            One1.CheckOut = DateTime.Today.AddDays(3);
-            One1.Accommodation = AccommodationViewModel.Accommodations.LastOrDefault();
-            BookingCatalog.Bookings.Add(One1);
 
         }
 
@@ -103,7 +91,7 @@ namespace FranceVacance.Code.Search {
                 )
                     isAddressMatch = true;
 
-                foreach (var _booking in BookingCatalog.Bookings) {
+                foreach (var _booking in BookingViewModel.Bookings) {
                     //check if the current _accommodation has bookings
                     if (_accommodation == _booking.Accommodation) {
                         Debug.WriteLine($"booking checkin: {_booking.CheckIn} | booking checkout: {_booking.CheckOut}");

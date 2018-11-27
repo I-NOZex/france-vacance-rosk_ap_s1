@@ -1,36 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
-using FranceVacance.Code.Accommodation;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Newtonsoft.Json;
 
 namespace FranceVacance.Code.Helpers {
     public class FileService<T> : IDataService<T> {
 
-        public async Task<ObservableCollection<T>> LoadData(string fileName) {
+        private async Task<string> loadDefaultData(string fileName, StorageFile jsonFile) {
+            StorageFile defaultJsonFile =
+                await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/{fileName}"));
+
+            string defaultJsonData = await FileIO.ReadTextAsync(defaultJsonFile);
+            await FileIO.WriteTextAsync(jsonFile, defaultJsonData);
+            return defaultJsonData;
+        }
+
+        public async Task<ObservableCollection<T>> LoadData(string fileName, bool skipDefaultData = false) {
             try {
                 string jsonData = "";
 
                 bool fileExists = await ApplicationData.Current.LocalFolder.FileExistsAsync(fileName);
                 if (!fileExists) {
                     StorageFile jsonFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(fileName);
-
-                    StorageFile defaultJsonFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/{fileName}"));
-
-                    string defaultJsonData = await FileIO.ReadTextAsync(defaultJsonFile);
-                    await FileIO.WriteTextAsync(jsonFile, defaultJsonData);
-
-
-                    jsonData = defaultJsonData;
-
+                    
+                    if (!skipDefaultData) {
+                        jsonData = await loadDefaultData(fileName, jsonFile);
+                    }
                 } else {
                     StorageFile jsonFile = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
-                    jsonData = await FileIO.ReadTextAsync(jsonFile);
+                    var fileProps = await jsonFile.GetBasicPropertiesAsync();
+
+                    if (fileProps.Size < 1.0) {
+                        jsonData = await loadDefaultData(fileName, jsonFile);
+                    } else {
+                        jsonData = await FileIO.ReadTextAsync(jsonFile);
+                    }
                 }
 
                 ObservableCollection<T> dataCollection =
@@ -54,9 +60,9 @@ namespace FranceVacance.Code.Helpers {
             settings.Formatting = Formatting.Indented;
 
 
-            string notebookData = JsonConvert.SerializeObject(dataCollection, settings);
+            string jsonData = JsonConvert.SerializeObject(dataCollection, settings);
             StorageFile jsonFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(jsonFile, notebookData);
+            await FileIO.WriteTextAsync(jsonFile, jsonData);
             return true;
         }
     }

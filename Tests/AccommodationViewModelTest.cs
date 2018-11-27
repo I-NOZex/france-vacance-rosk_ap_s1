@@ -50,7 +50,6 @@ namespace Tests
             SearchViewModel VM = InitialSetup();
 
             AccommodationViewModel AccommodationCatalogFiltered = new AccommodationViewModel();
-            AccommodationCatalogFiltered.Accommodations.Clear();
 
             SearchFiltersViewModel SAF = new SearchFiltersViewModel();
 
@@ -74,7 +73,6 @@ namespace Tests
             SearchViewModel VM = InitialSetup();
 
             AccommodationViewModel AccommodationCatalogFiltered = new AccommodationViewModel();
-            AccommodationCatalogFiltered.Accommodations.Clear();
 
             SearchFiltersViewModel SAF = new SearchFiltersViewModel();
 
@@ -97,7 +95,6 @@ namespace Tests
             SearchViewModel VM = InitialSetup();
 
             AccommodationViewModel AccommodationCatalogFiltered = new AccommodationViewModel();
-            AccommodationCatalogFiltered.Accommodations.Clear();
 
             SearchFiltersViewModel SAF = new SearchFiltersViewModel();
 

@@ -20,42 +20,12 @@ namespace FranceVacance.Code.Accommodation {
         }
 
         public async Task LoadData() {
-            _accommodationService = new AccommodationService();
-            Accommodations = new ObservableCollection<AccommodationModel>();
             Accommodations = await _accommodationService.LoadDataAsync();
         }
 
         public AccommodationViewModel() {
-            //LoadData();
-            //_accommodationService.LoadData();
-
-
-            /*Accommodations = new ObservableCollection<AccommodationModel>();
-            Random r = new Random();
-            List<string> addresses = new List<string>() {
-                "Paris",
-                "Nice",
-                "Lion",
-                "Cannes",
-                "Montpellier",
-                "Perpignan",
-                "Prades",
-                "Villefranche"
-            };
-
-            foreach (var idx in Enumerable.Range(0, 10)) {
-                Accommodations.Add(
-                    new AccommodationModel() {
-                        Id = idx,
-                        Address = addresses.ElementAt(r.Next(addresses.Count-1)),
-                        Name = $"Demo accommodation #{idx}",
-                        NumberOfRooms = r.Next(1, 8),
-                        Price = Math.Pow(3,idx),
-                        Rating = r.Next(0, 5),
-                    }
-                );
-            }*/
-
+            _accommodationService = new AccommodationService();
+            Accommodations = new ObservableCollection<AccommodationModel>();
         }
     }
 }

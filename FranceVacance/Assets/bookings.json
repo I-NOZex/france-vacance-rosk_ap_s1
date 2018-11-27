@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 0,
+    "TotalPrice": 999.99,
+    "CheckIn": "2018-11-27T00:00:00+01:00",
+    "CheckOut": "2018-11-28T00:00:00+01:00",
+    "Accommodation": null
+  },
+  {
+    "Id": 0,
+    "TotalPrice": 999.8899,
+    "CheckIn": "2018-11-29T00:00:00+01:00",
+    "CheckOut": "2018-11-30T00:00:00+01:00",
+    "Accommodation": null
+  }
+]

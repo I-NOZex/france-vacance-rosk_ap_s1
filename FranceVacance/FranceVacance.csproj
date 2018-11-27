@@ -96,10 +96,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Code\Accommodation\AccommodationService.cs" />
+    <Compile Include="Code\Booking\BookingService.cs" />
     <Compile Include="Code\Helpers\DateOperationsConverter.cs" />
     <Compile Include="Code\Helpers\CurrencyToDkkConverter.cs" />
     <Compile Include="Code\Accommodation\AccommodationViewModel.cs" />
-    <Compile Include="Code\Booking\BookingCatalog.cs" />
+    <Compile Include="Code\Booking\BookingViewModel.cs" />
     <Compile Include="Code\Booking\BookingModel.cs" />
     <Compile Include="Code\Helpers\FileService.cs" />
     <Compile Include="Code\Helpers\IDataService.cs" />
@@ -118,6 +119,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Assets\accommodations.json" />
+    <Content Include="Assets\bookings.json" />
     <None Include="FranceVacance_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

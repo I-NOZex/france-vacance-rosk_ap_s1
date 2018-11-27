@@ -16,8 +16,6 @@ namespace FranceVacance.Code.Accommodation {
             set {
                 _accommodations = value;
                 OnPropertyChanged("Accommodations");
-                OnPropertyChanged("AccommodationsFiltered");
-                Debug.WriteLine("Accommodations changed");
             }
         }
 

@@ -13,7 +13,7 @@ namespace FranceVacance.Code.Search {
 
         public Accommodation.AccommodationViewModel AccommodationViewModel { get; set; }
 
-        public SearchFiltersModel SearchAccommodation { get; set; }
+        public SearchFiltersViewModel SearchAccommodation { get; set; }
 
         public Booking.BookingCatalog BookingCatalog { get; set; }
 
@@ -24,19 +24,24 @@ namespace FranceVacance.Code.Search {
             }
         }
 
-        public async Task LoadData() {
+        public async Task InitializeData() {
             await AccommodationViewModel.LoadData();
             await AccommodationsFiltered.LoadData();
+            SearchAccommodation.MaxPrice = FindMaxPrice();
+            SearchAccommodation.SelectedMaxPrice = SearchAccommodation.MaxPrice;
         }
 
 
         public SearchViewModel() {
-            AccommodationViewModel = new Accommodation.AccommodationViewModel();
-            AccommodationsFiltered = new Accommodation.AccommodationViewModel();
+            AccommodationViewModel = new AccommodationViewModel();
+            AccommodationsFiltered = new AccommodationViewModel();
+            SearchAccommodation = new SearchFiltersViewModel();
 
-            LoadData();
+            InitializeData();
 
-            SearchAccommodation = new SearchFiltersModel();
+            SearchAccommodation.CheckIn = DateTime.Today;
+            SearchAccommodation.CheckOut = DateTime.Today.AddDays(1);
+
             BookingCatalog = new Booking.BookingCatalog();
 
             Booking.BookingModel One = new Booking.BookingModel();
@@ -54,10 +59,6 @@ namespace FranceVacance.Code.Search {
             One1.Accommodation = AccommodationViewModel.Accommodations.LastOrDefault();
             BookingCatalog.Bookings.Add(One1);
 
-            SearchAccommodation.CheckIn = DateTime.Today;
-            SearchAccommodation.CheckOut = DateTime.Today.AddDays(1);
-            SearchAccommodation.MaxPrice = FindMaxPrice();
-            SearchAccommodation.SelectedMaxPrice = SearchAccommodation.MaxPrice;
         }
 
 

@@ -52,7 +52,7 @@ namespace Tests
             AccommodationViewModel AccommodationCatalogFiltered = new AccommodationViewModel();
             AccommodationCatalogFiltered.Accommodations.Clear();
 
-            SearchFiltersModel SAF = new SearchFiltersModel();
+            SearchFiltersViewModel SAF = new SearchFiltersViewModel();
 
             SAF.MaxPrice = VM.FindMaxPrice();
 
@@ -76,7 +76,7 @@ namespace Tests
             AccommodationViewModel AccommodationCatalogFiltered = new AccommodationViewModel();
             AccommodationCatalogFiltered.Accommodations.Clear();
 
-            SearchFiltersModel SAF = new SearchFiltersModel();
+            SearchFiltersViewModel SAF = new SearchFiltersViewModel();
 
             SAF.MaxPrice = VM.FindMaxPrice();
 
@@ -99,7 +99,7 @@ namespace Tests
             AccommodationViewModel AccommodationCatalogFiltered = new AccommodationViewModel();
             AccommodationCatalogFiltered.Accommodations.Clear();
 
-            SearchFiltersModel SAF = new SearchFiltersModel();
+            SearchFiltersViewModel SAF = new SearchFiltersViewModel();
 
             SAF.MaxPrice = VM.FindMaxPrice();
 

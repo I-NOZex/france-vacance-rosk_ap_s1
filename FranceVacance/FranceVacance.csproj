@@ -103,7 +103,7 @@
     <Compile Include="Code\Booking\BookingModel.cs" />
     <Compile Include="Code\Helpers\FileService.cs" />
     <Compile Include="Code\Helpers\IDataService.cs" />
-    <Compile Include="Code\Search\SearchFiltersModel.cs" />
+    <Compile Include="Code\Search\SearchFiltersViewModel.cs" />
     <Compile Include="Code\Search\SearchView.xaml.cs">
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": 0,
+    "Name": "Demo accommodation #0",
+    "Address": "Perpignan",
+    "Price": 1.0,
+    "NumberOfRooms": 5,
+    "Rating": 2
+  },
+  {
+    "Id": 1,
+    "Name": "Demo accommodation #1",
+    "Address": "Prades",
+    "Price": 3.0,
+    "NumberOfRooms": 4,
+    "Rating": 3
+  },
+  {
+    "Id": 2,
+    "Name": "Demo accommodation #2",
+    "Address": "Paris",
+    "Price": 9.0,
+    "NumberOfRooms": 2,
+    "Rating": 3
+  },
+  {
+    "Id": 3,
+    "Name": "Demo accommodation #3",
+    "Address": "Prades",
+    "Price": 27.0,
+    "NumberOfRooms": 5,
+    "Rating": 2
+  },
+  {
+    "Id": 4,
+    "Name": "Demo accommodation #4",
+    "Address": "Nice",
+    "Price": 81.0,
+    "NumberOfRooms": 1,
+    "Rating": 4
+  },
+  {
+    "Id": 5,
+    "Name": "Demo accommodation #5",
+    "Address": "Montpellier",
+    "Price": 243.0,
+    "NumberOfRooms": 3,
+    "Rating": 1
+  },
+  {
+    "Id": 6,
+    "Name": "Demo accommodation #6",
+    "Address": "Montpellier",
+    "Price": 729.0,
+    "NumberOfRooms": 2,
+    "Rating": 1
+  },
+  {
+    "Id": 7,
+    "Name": "Demo accommodation #7",
+    "Address": "Nice",
+    "Price": 2187.0,
+    "NumberOfRooms": 5,
+    "Rating": 1
+  },
+  {
+    "Id": 8,
+    "Name": "Demo accommodation #8",
+    "Address": "Perpignan",
+    "Price": 6561.0,
+    "NumberOfRooms": 4,
+    "Rating": 0
+  },
+  {
+    "Id": 9,
+    "Name": "Demo accommodation #9",
+    "Address": "Paris",
+    "Price": 19683.0,
+    "NumberOfRooms": 3,
+    "Rating": 4
+  }
+]

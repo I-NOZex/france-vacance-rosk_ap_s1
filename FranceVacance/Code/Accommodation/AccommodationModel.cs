@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace FranceVacance.Model {
+namespace FranceVacance.Code.Accommodation {
+    [JsonObject(IsReference = true)]
     public class AccommodationModel {
         private int _id { get; set; }
         private string _name { get; set; }
@@ -41,11 +39,6 @@ namespace FranceVacance.Model {
         public int Rating {
             get { return _rating; }
             set { _rating = value; }
-        }
-
-
-        public AccommodationModel() {
-
         }
 
 

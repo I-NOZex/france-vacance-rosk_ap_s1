@@ -28,6 +28,8 @@ namespace FranceVacance.Code.Search {
             await AccommodationViewModel.LoadData();
             await AccommodationsFiltered.LoadData();
             await BookingViewModel.LoadData();
+            BookingViewModel.Bookings.First().Accommodation = AccommodationViewModel.Accommodations.First();
+            BookingViewModel.Bookings.Last().Accommodation = AccommodationViewModel.Accommodations.Last();
             SearchAccommodation.MaxPrice = FindMaxPrice();
             SearchAccommodation.SelectedMaxPrice = SearchAccommodation.MaxPrice;
             Search(
@@ -36,6 +38,7 @@ namespace FranceVacance.Code.Search {
                 byAddress: false,
                 byDate: true
             );
+            BookingViewModel.SaveData();
         }
 
 
@@ -49,15 +52,11 @@ namespace FranceVacance.Code.Search {
 
             SearchAccommodation.CheckIn = DateTime.Today;
             SearchAccommodation.CheckOut = DateTime.Today.AddDays(1);
-
-
-
-
         }
 
 
 
-        public Accommodation.AccommodationViewModel Search(
+        public AccommodationViewModel Search(
             bool byName = false, 
             bool byMaxPrice = false, 
             bool byAddress = false,

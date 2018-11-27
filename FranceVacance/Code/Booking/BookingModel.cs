@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace FranceVacance.Code.Booking {
 
@@ -14,6 +15,8 @@ namespace FranceVacance.Code.Booking {
         public double TotalPrice { get; set; }
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
+
+        [JsonProperty(IsReference = true)]
         public Accommodation.AccommodationModel Accommodation { get; set; }
 
     }

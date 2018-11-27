@@ -23,6 +23,10 @@ namespace FranceVacance.Code.Booking {
             Bookings = await _bookingService.LoadDataAsync();
         }
 
+        public async Task SaveData() {
+            await _bookingService.SaveDataAsync(Bookings);
+        }
+
         public BookingViewModel() {
             _bookingService = new BookingService();
             Bookings = new ObservableCollection<BookingModel>();

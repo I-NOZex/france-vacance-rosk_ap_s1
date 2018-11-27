@@ -1,4 +1,8 @@
-﻿namespace FranceVacance.Code.Accommodation {
+﻿using System;
+using Newtonsoft.Json;
+
+namespace FranceVacance.Code.Accommodation {
+    [JsonObject(IsReference = true)]
     public class AccommodationModel {
         private int _id { get; set; }
         private string _name { get; set; }

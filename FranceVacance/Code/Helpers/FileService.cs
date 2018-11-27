@@ -6,7 +6,10 @@ using Microsoft.Toolkit.Uwp.Helpers;
 using Newtonsoft.Json;
 
 namespace FranceVacance.Code.Helpers {
+
+
     public class FileService<T> : IDataService<T> {
+        protected JsonSerializerSettings SerializerSettings;
 
         private async Task<string> loadDefaultData(string fileName, StorageFile jsonFile) {
             StorageFile defaultJsonFile =
@@ -52,18 +55,21 @@ namespace FranceVacance.Code.Helpers {
         }
 
         public async Task<bool> SaveData(string fileName, ObservableCollection<T> dataCollection) {
-            // Serializer settings
-            JsonSerializerSettings settings = new JsonSerializerSettings();
-            settings.PreserveReferencesHandling = PreserveReferencesHandling.None;
-            settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            //settings.Formatting = Formatting.None;
-            settings.Formatting = Formatting.Indented;
-
-
-            string jsonData = JsonConvert.SerializeObject(dataCollection, settings);
+            string jsonData = JsonConvert.SerializeObject(dataCollection, SerializerSettings);
             StorageFile jsonFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(jsonFile, jsonData);
             return true;
         }
+
+        public FileService() {
+            // Serializer settings
+            SerializerSettings = new JsonSerializerSettings();
+            SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
+            SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            //SerializerSettings.Formatting = Formatting.None;
+            SerializerSettings.Formatting = Formatting.Indented;
+            SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
+        }
+
     }
 }

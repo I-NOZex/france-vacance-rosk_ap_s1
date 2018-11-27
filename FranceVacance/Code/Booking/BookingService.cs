@@ -18,7 +18,6 @@ namespace FranceVacance.Code.Booking {
         }
 
         public async Task<bool> SaveDataAsync(ObservableCollection<BookingModel> accommodationCollection) {
-            //SerializerSettings.ContractResolver = new DynamicContractResolver();
             return await SaveData(FILE_NAME, accommodationCollection);
         }
     }
@@ -28,16 +27,6 @@ namespace FranceVacance.Code.Booking {
 
         public DynamicContractResolver() {
             
-        }
-
-        protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization) {
-            IList<JsonProperty> properties = base.CreateProperties(type, memberSerialization);
-
-            // only serializer properties that start with the specified character
-            properties =
-                properties.Where(p => p.PropertyName == "Id").ToList();
-
-            return properties;
         }
     }
 }

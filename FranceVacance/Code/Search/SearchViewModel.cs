@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using FranceVacance.Code.Accommodation;
+using FranceVacance.Code.Booking;
 using FranceVacance.Code.Common;
 
 namespace FranceVacance.Code.Search {
@@ -15,7 +16,7 @@ namespace FranceVacance.Code.Search {
 
         public SearchFiltersViewModel SearchAccommodation { get; set; }
 
-        public Booking.BookingViewModel BookingViewModel { get; set; }
+        public BookingViewModel BookingViewModel { get; set; }
 
         public AccommodationViewModel AccommodationsFiltered {
             get { return _accommodationsFiltered; }
@@ -25,12 +26,10 @@ namespace FranceVacance.Code.Search {
         }
 
         public async Task InitializeData() {
-            await AccommodationViewModel.LoadData();
+            await AccommodationViewModel.FirstInstance.LoadData();
+            AccommodationViewModel = AccommodationViewModel.FirstInstance;
             await AccommodationsFiltered.LoadData();
             await BookingViewModel.LoadData();
-
-            BookingViewModel.Bookings.First().Accommodation = AccommodationViewModel.Accommodations.First();
-            BookingViewModel.Bookings.Last().Accommodation = AccommodationViewModel.Accommodations.Last();
 
             SearchAccommodation.MaxPrice = FindMaxPrice();
             SearchAccommodation.SelectedMaxPrice = SearchAccommodation.MaxPrice;
@@ -40,7 +39,6 @@ namespace FranceVacance.Code.Search {
                 byAddress: false,
                 byDate: true
             );
-            BookingViewModel.SaveData();
         }
 
 
@@ -48,7 +46,7 @@ namespace FranceVacance.Code.Search {
             AccommodationViewModel = new AccommodationViewModel();
             AccommodationsFiltered = new AccommodationViewModel();
             SearchAccommodation = new SearchFiltersViewModel();
-            BookingViewModel = new Booking.BookingViewModel();
+            BookingViewModel = new BookingViewModel();
 
             InitializeData();
 

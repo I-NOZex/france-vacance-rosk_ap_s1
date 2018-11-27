@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Code\Accommodation\AccommodationService.cs" />
+    <Compile Include="Code\Booking\BookingModelConverter.cs" />
     <Compile Include="Code\Booking\BookingService.cs" />
     <Compile Include="Code\Helpers\DateOperationsConverter.cs" />
     <Compile Include="Code\Helpers\CurrencyToDkkConverter.cs" />

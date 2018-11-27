@@ -28,8 +28,10 @@ namespace FranceVacance.Code.Search {
             await AccommodationViewModel.LoadData();
             await AccommodationsFiltered.LoadData();
             await BookingViewModel.LoadData();
+
             BookingViewModel.Bookings.First().Accommodation = AccommodationViewModel.Accommodations.First();
             BookingViewModel.Bookings.Last().Accommodation = AccommodationViewModel.Accommodations.Last();
+
             SearchAccommodation.MaxPrice = FindMaxPrice();
             SearchAccommodation.SelectedMaxPrice = SearchAccommodation.MaxPrice;
             Search(

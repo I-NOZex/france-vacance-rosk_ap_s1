@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using FranceVacance.Data;
-using FranceVacance.Helpers;
-using FranceVacance.Model;
-using FranceVacance.ViewModel;
+using FranceVacance.Code.Accommodation;
+using FranceVacance.Code.Search;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
@@ -13,10 +11,10 @@ namespace Tests
     [TestClass]
     public class AccommodationViewModelTest {
 
-        private MainViewModel InitialSetup() {
-            MainViewModel VM = new MainViewModel();
-            VM.AccommodationCatalog = new AccommodationCatalog();
-            VM.AccommodationCatalog.Accommodations = new ObservableCollection<AccommodationModel>() {
+        private SearchViewModel InitialSetup() {
+            SearchViewModel VM = new SearchViewModel();
+            VM.AccommodationViewModel = new AccommodationViewModel();
+            VM.AccommodationViewModel.Accommodations = new ObservableCollection<AccommodationModel>() {
                 new AccommodationModel() {
                     Name = "DanskHotel",
                     Price = 200
@@ -49,12 +47,11 @@ namespace Tests
         [TestMethod]
         public void Search_By_Name() {
 
-            MainViewModel VM = InitialSetup();
+            SearchViewModel VM = InitialSetup();
 
-            AccommodationCatalog AccommodationCatalogFiltered = new AccommodationCatalog();
-            AccommodationCatalogFiltered.Accommodations.Clear();
+            AccommodationViewModel AccommodationCatalogFiltered = new AccommodationViewModel();
 
-            SearchAccommodationFilters SAF = new SearchAccommodationFilters();
+            SearchFiltersViewModel SAF = new SearchFiltersViewModel();
 
             SAF.MaxPrice = VM.FindMaxPrice();
 
@@ -73,12 +70,11 @@ namespace Tests
         [TestMethod]
         public void Search_By_MaxPrice() {
 
-            MainViewModel VM = InitialSetup();
+            SearchViewModel VM = InitialSetup();
 
-            AccommodationCatalog AccommodationCatalogFiltered = new AccommodationCatalog();
-            AccommodationCatalogFiltered.Accommodations.Clear();
+            AccommodationViewModel AccommodationCatalogFiltered = new AccommodationViewModel();
 
-            SearchAccommodationFilters SAF = new SearchAccommodationFilters();
+            SearchFiltersViewModel SAF = new SearchFiltersViewModel();
 
             SAF.MaxPrice = VM.FindMaxPrice();
 
@@ -96,12 +92,11 @@ namespace Tests
         [TestMethod]
         public void Search_By_Name_AND_MaxPrice() {
 
-            MainViewModel VM = InitialSetup();
+            SearchViewModel VM = InitialSetup();
 
-            AccommodationCatalog AccommodationCatalogFiltered = new AccommodationCatalog();
-            AccommodationCatalogFiltered.Accommodations.Clear();
+            AccommodationViewModel AccommodationCatalogFiltered = new AccommodationViewModel();
 
-            SearchAccommodationFilters SAF = new SearchAccommodationFilters();
+            SearchFiltersViewModel SAF = new SearchFiltersViewModel();
 
             SAF.MaxPrice = VM.FindMaxPrice();
 

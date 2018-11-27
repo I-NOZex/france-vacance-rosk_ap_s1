@@ -31,5 +31,10 @@ namespace FranceVacance.Code.Booking {
             _bookingService = new BookingService();
             Bookings = new ObservableCollection<BookingModel>();
         }
+
+        public BookingViewModel(AccommodationViewModel accommodationViewModel) {
+            _bookingService = new BookingService();
+            Bookings = new ObservableCollection<BookingModel>();
+        }
     }
 }

@@ -75,7 +75,6 @@ namespace FranceVacance.Code.Helpers {
             SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             //SerializerSettings.Formatting = Formatting.None;
             SerializerSettings.Formatting = Formatting.Indented;
-            SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
         }
 
     }

@@ -29,6 +29,12 @@ namespace FranceVacance.Code.Search {
             await AccommodationsFiltered.LoadData();
             SearchAccommodation.MaxPrice = FindMaxPrice();
             SearchAccommodation.SelectedMaxPrice = SearchAccommodation.MaxPrice;
+            Search(
+                byName: false,
+                byMaxPrice: true,
+                byAddress: false,
+                byDate: true
+            );
         }
 
 

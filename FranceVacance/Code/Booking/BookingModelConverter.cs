@@ -49,4 +49,17 @@ namespace FranceVacance.Code.Booking {
             return result;
         }
     }
+
+    internal class JsonConverter<T>
+    {
+        public virtual BookingModel ReadJson(JsonReader reader, Type objectType, BookingModel existingValue, bool hasExistingValue, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void WriteJson(JsonWriter writer, BookingModel value, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

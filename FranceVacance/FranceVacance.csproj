@@ -110,6 +110,7 @@
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Code\Accommodation\AccommodationModel.cs" />
+    <Compile Include="Code\User\UserInfo.cs" />
     <Compile Include="Code\User\ViewModelUser.xaml.cs">
       <DependentUpon>ViewModelUser.xaml</DependentUpon>
     </Compile>

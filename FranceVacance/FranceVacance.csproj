@@ -111,6 +111,8 @@
     </Compile>
     <Compile Include="Code\Accommodation\AccommodationModel.cs" />
     <Compile Include="Code\User\UserInfo.cs" />
+    <Compile Include="Code\User\UserService.cs" />
+    <Compile Include="Code\User\UserViewModel.cs" />
     <Compile Include="Code\User\ViewModelUser.xaml.cs">
       <DependentUpon>ViewModelUser.xaml</DependentUpon>
     </Compile>

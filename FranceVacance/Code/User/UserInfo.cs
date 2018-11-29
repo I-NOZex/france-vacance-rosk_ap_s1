@@ -30,5 +30,14 @@ namespace FranceVacance.Code.User
             get { return _email; }
             set { _email = value; }
         }
+
+        public UserInfo(string username, string pass, string email)
+        {
+            username = Username;
+            pass = Pass;
+            email = Email;
+
+
+        }
     }
 }

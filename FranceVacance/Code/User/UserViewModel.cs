@@ -36,5 +36,14 @@ namespace FranceVacance.Code.User {
                 RegisteredUsers = await _userService.LoadDataAsync();
         }
 
+        public UserModel GetUser() {
+            //search inside the _userViewModel.RegisteredUsers for the user which have
+            //the same email and password as inputed in the form
+            //if there's a match:
+            //return the match
+            //else
+            return null;
+        }
+
     }
 }

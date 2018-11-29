@@ -21,12 +21,4 @@ namespace FranceVacance.Code.Booking {
             return await SaveData(FILE_NAME, accommodationCollection);
         }
     }
-
-    public class DynamicContractResolver : DefaultContractResolver {
-        private readonly char _startingWithChar;
-
-        public DynamicContractResolver() {
-            
-        }
-    }
 }

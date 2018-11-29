@@ -36,7 +36,8 @@ namespace FranceVacance.Code.Accommodation {
             Accommodations = await _accommodationService.LoadDataAsync();
         }
 
-        public AccommodationViewModel() {
+        public AccommodationViewModel()
+        {
             _accommodationService = new AccommodationService();
             Accommodations = new ObservableCollection<AccommodationModel>();
         }

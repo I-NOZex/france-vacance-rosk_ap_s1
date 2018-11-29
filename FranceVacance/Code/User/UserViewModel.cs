@@ -13,7 +13,8 @@ namespace FranceVacance.Code.User
         private string _VUsername;
         private string _VPass;
         private string _VConfirmPass;
-        private string _VEmail; 
+        private string _VEmail;
+        private UserService _userService;
 
         public string VUsername
         {
@@ -54,9 +55,10 @@ namespace FranceVacance.Code.User
             UserInfo NewUser = new UserInfo(VUsername,VPass,VEmail);
            RegisteredUsers.Add(NewUser);
         }
-
+        
         public UserViewModel()
         {
+            _userService = new UserService();
             
         }
 

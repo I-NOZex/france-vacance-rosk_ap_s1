@@ -26,6 +26,9 @@ namespace FranceVacance.Code.Search
                 );
         }
 
+        private void Btn_register_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e) {
+            Frame.Navigate(typeof(RegisterView));
+        }
     }
 }
 

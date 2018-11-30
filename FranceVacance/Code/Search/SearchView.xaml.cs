@@ -1,4 +1,7 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+using FranceVacance.Code.User;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -24,6 +27,11 @@ namespace FranceVacance.Code.Search
                     byAddress: VM.SearchAccommodation.Address.Length > 0,
                     byDate: true
                 );
+        }
+        //I am Borislav's creation :), so don't mind me
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+             this.Frame.Navigate(typeof(RegisterView));
         }
 
     }

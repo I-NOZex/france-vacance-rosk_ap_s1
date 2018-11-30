@@ -26,7 +26,4 @@ namespace FranceVacance.Code.User
         _accommodationViewModel = accommodationViewModel;
     }*/
     }
-
-    {
-    }
 }

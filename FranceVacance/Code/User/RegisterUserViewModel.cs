@@ -75,11 +75,14 @@ namespace FranceVacance.Code.User
         //    await _userService.SaveDataAsync(RegisteredUsers);
 
         //}
-        UserInfo NewUser = new UserInfo(VUsername, VPass, VEmail);
         public RegisterUserViewModel()
         {
             _userService = new UserService();
             CreatingAnAccount = new RelayCommand(AddUser);
+            VUsername = "";
+            VConfirmPass = "";
+            VEmail = "";
+            VPass = "";
 
         }
         private async void AddUser()
@@ -87,6 +90,8 @@ namespace FranceVacance.Code.User
             bool IsValid = Validation();
             if (IsValid)
             {
+                UserInfo NewUser = new UserInfo(VUsername, VPass, VEmail);
+
                 RegisteredUsers.Add(NewUser);
                 await _userService.SaveDataAsync(RegisteredUsers);
 
@@ -98,7 +103,6 @@ namespace FranceVacance.Code.User
             }
 
         }
-
 
 
 

@@ -110,6 +110,9 @@
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Code\Accommodation\AccommodationModel.cs" />
+    <Compile Include="Code\User\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Code\User\UserInfo.cs" />
     <Compile Include="Code\User\UserService.cs" />
     <Compile Include="Code\User\RegisterUserViewModel.cs" />
@@ -145,7 +148,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Code\User\MainPage1.xaml">
+    <Page Include="Code\User\RegisterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,7 +17,11 @@ namespace FranceVacance.Code.User
         private string _vConfirmPass;
         private string _vEmail;
         private UserService _userService;
-        public UserModel UserInfo;
+        private UserModel _userModel;
+        public string UserError;
+        public string PassError;
+        public string ConfirmPassError;
+        public string EmailError;
         public string VUsername
         {
             get { return _vUsername; }
@@ -44,6 +48,9 @@ namespace FranceVacance.Code.User
                // OnPropertyChanged("LIST");
             }
         }
+        
+
+
 
         public string ErrorMessage
         {

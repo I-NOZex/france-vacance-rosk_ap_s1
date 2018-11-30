@@ -29,10 +29,7 @@ namespace FranceVacance.Code.Search
                 );
         }
         //I am Borislav's creation :), so don't mind me
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-             this.Frame.Navigate(typeof(RegisterView));
-        }
+        
 
         private void Btn_register_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e) {
             Frame.Navigate(typeof(RegisterView));

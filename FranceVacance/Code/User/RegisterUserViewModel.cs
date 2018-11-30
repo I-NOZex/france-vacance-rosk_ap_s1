@@ -12,51 +12,51 @@ namespace FranceVacance.Code.User
     class RegisterUserViewModel: ViewModelBase
 
     {
-        private string _VUsername;
-        private string _VPass;
-        private string _VConfirmPass;
-        private string _VEmail;
+        private string _vUsername;
+        private string _vPass;
+        private string _vConfirmPass;
+        private string _vEmail;
         private UserService _userService;
-        public UserInfo _userInfo;
+        public UserModel UserInfo;
         public string VUsername
         {
-            get { return _VUsername; }
-            set { _VUsername = value; }
+            get { return _vUsername; }
+            set { _vUsername = value; }
         }
 
         public string VPass
         {
-            get { return _VPass; }
-            set { _VPass = value; }
+            get { return _vPass; }
+            set { _vPass = value; }
         }
         public string VConfirmPass
         {
-            get { return _VConfirmPass; }
-            set { _VConfirmPass = value; }
+            get { return _vConfirmPass; }
+            set { _vConfirmPass = value; }
         }
 
         public string VEmail
         {
-            get { return _VEmail; }
+            get { return _vEmail; }
             set
             {
-                _VEmail = value;
+                _vEmail = value;
                // OnPropertyChanged("LIST");
             }
         }
 
         public string ErrorMessage
         {
-            get { return _VEmail; }
+            get { return _vEmail; }
 
         set {
-            _VEmail = value;
+            _vEmail = value;
             OnPropertyChanged("ErrorMessage");
         }
         }
 
 
-        ObservableCollection<UserInfo> RegisteredUsers = new ObservableCollection<UserInfo>();
+        ObservableCollection<UserModel> _registeredUsers = new ObservableCollection<UserModel>();
 
         public bool Validation()
         {
@@ -87,13 +87,13 @@ namespace FranceVacance.Code.User
         }
         private async void AddUser()
         {
-            bool IsValid = Validation();
-            if (IsValid)
+            bool isValid = Validation();
+            if (isValid)
             {
-                UserInfo NewUser = new UserInfo(VUsername, VPass, VEmail);
+                UserModel newUser = new UserModel(VUsername, VPass, VEmail);
 
-                RegisteredUsers.Add(NewUser);
-                await _userService.SaveDataAsync(RegisteredUsers);
+                _registeredUsers.Add(newUser);
+                await _userService.SaveDataAsync(_registeredUsers);
 
             }
             

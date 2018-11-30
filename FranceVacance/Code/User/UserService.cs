@@ -8,25 +8,18 @@ using System.Threading.Tasks;
 
 namespace FranceVacance.Code.User
 {
-    class UserService :  FileService<UserModel>
+    class UserService : FileService<UserModel>
     {
-    private const string FILE_NAME = "users.json";
+        private const string FileName = "users.json";
 
-    public async Task<ObservableCollection<UserModel>> LoadDataAsync()
-    {
-        return await LoadData(FILE_NAME);
-    }
+        public async Task<ObservableCollection<UserModel>> LoadDataAsync()
+        {
+            return await LoadData(FileName);
+        }
 
-    public async Task<bool> SaveDataAsync(ObservableCollection<UserModel> usersCollection)
-    {
-        return await SaveData(FILE_NAME, usersCollection);
-    }
-
-    /*public AccommodationService(AccommodationViewModel accommodationViewModel) {
-        _accommodationViewModel = accommodationViewModel;
-    }*/
-    }
-
-    {
+        public async Task<bool> SaveDataAsync(ObservableCollection<UserModel> usersCollection)
+        {
+            return await SaveData(FileName, usersCollection);
+        }
     }
 }

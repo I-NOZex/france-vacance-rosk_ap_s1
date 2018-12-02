@@ -155,19 +155,22 @@ namespace FranceVacance.Code.User
                 UserError = "Enter valid username";
                 return false;
             }
+
             // checks if the pass has more than 8 characters
             else if (VPass.Length < 8)
             {          
                 PassError = "The password is below 8 characters!";
                 return false;
             }
+
             //check if the email is valid
             else if (EmailValidator(VEmail) == false)
             {
                 EmailError = "Enter valid email";
                 return false;
             }
-          else if (VPass != VConfirmPass)
+
+            else if (VPass != VConfirmPass)
             {
                 ConfirmPassError = "Password doesn't match";
                 return false;

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using FranceVacance.Code.Common;
 using FranceVacance.Code.Helpers;
 
 namespace FranceVacance.Code.User
 {
-    class RegisterUserViewModel: ViewModelBase
+    public class RegisterUserViewModel : ViewModelBase
 
     {
         private string _vUsername;
@@ -22,6 +23,7 @@ namespace FranceVacance.Code.User
         public string PassError;
         public string ConfirmPassError;
         public string EmailError;
+
         public string VUsername
         {
             get { return _vUsername; }
@@ -45,34 +47,124 @@ namespace FranceVacance.Code.User
             set
             {
                 _vEmail = value;
-               // OnPropertyChanged("LIST");
+                // OnPropertyChanged("LIST");
             }
         }
-        
-
-
-
-        public string ErrorMessage
+        public RegisterUserViewModel()
         {
-            get { return _vEmail; }
+            UserViewModel.Instance.LoadData();
+            CreatingAnAccount = new RelayCommand(AddUser);
+            VUsername = "";
+            VConfirmPass = "";
+            VEmail = "";
+            VPass = "";
 
-        set {
+        }
+
+        public bool StringValidator(string input)
+        {
+            string pattern = "[a-zA-Z]";
+            if (Regex.IsMatch(input, pattern))
+            {
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        public bool EmailValidator(string input)
+        {
+            string pattern = "[\\w-]+@([\\w-]+\\.)+[\\w-]+";
+            if (Regex.IsMatch(input, pattern))
+            {
+                return true;
+            }
+
+            return false;
+        }
+        public bool IntegerValidator(string input)
+        {
+            string pattern = "[^0-9]";
+            if (Regex.IsMatch(input, pattern))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void ClearText(string user, string pass)
+        {
+            user = String.Empty;
+            pass = String.Empty;
+        }
+
+
+        public bool ValidationData()
+        {
+           
+            //check if the email is valid
+            if (StringValidator(VUsername) == false)
+            {
+                ErrorMessage = "Enter valid username";
+                return false;
+            }
+            // checks if the pass has more than 8 characters
+            else if (VPass.Length < 8)
+            {
+               
+                PassError = "The password is below 8 characters!";
+
+            }
+            //check if the email is valid
+            else if (EmailValidator(VEmail) == false)
+            {
+                EmailError = "Enter valid email";
+                return false;
+            }
+          else if (VPass != ConfirmPassError)
+            {
+                ConfirmPassError = "Password doesn't match";
+                return false;
+            }
+
+            foreach (var user in UserViewModel.Instance.RegisteredUsers)
+            {
+                if (VEmail == user.Email)
+                {
+                EmailError = "Email is not available";
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    public string ErrorMessage
+    {
+        get { return _vEmail; }
+
+        set
+        {
             _vEmail = value;
             OnPropertyChanged("ErrorMessage");
         }
-        }
+    }
 
 
-        ObservableCollection<UserModel> _registeredUsers = new ObservableCollection<UserModel>();
 
-        public bool Validation()
-        {
-           // VUsername;
-           // VPass;
-           // VEmail;
-            return true;
-        }
-        public RelayCommand CreatingAnAccount { get; set; }
+    public bool Validation()
+    {
+        // VUsername;
+        // VPass;
+        // VEmail;
+        return true;
+    }
+    public RelayCommand CreatingAnAccount { get; set; }
 
         //public async void CreateUser()
         //{
@@ -82,34 +174,20 @@ namespace FranceVacance.Code.User
         //    await _userService.SaveDataAsync(RegisteredUsers);
 
         //}
-        public RegisterUserViewModel()
-        {
-            _userService = new UserService();
-            CreatingAnAccount = new RelayCommand(AddUser);
-            VUsername = "";
-            VConfirmPass = "";
-            VEmail = "";
-            VPass = "";
-
-        }
         private async void AddUser()
         {
+            var UserVmInstance = UserViewModel.Instance;
             bool isValid = Validation();
             if (isValid)
             {
                 UserModel newUser = new UserModel(VUsername, VPass, VEmail);
 
-                _registeredUsers.Add(newUser);
-                await _userService.SaveDataAsync(_registeredUsers);
-
-            }
-            
-            else
-            {
-                ErrorMessage = "Input ERROR🔫";
+                UserVmInstance.RegisteredUsers.Add(newUser);
+                UserVmInstance.SaveData();
             }
 
         }
+
 
 
 

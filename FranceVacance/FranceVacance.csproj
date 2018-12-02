@@ -129,6 +129,7 @@
     </AppxManifest>
     <Content Include="Assets\accommodations.json" />
     <Content Include="Assets\bookings.json" />
+    <Content Include="Assets\users.json" />
     <None Include="FranceVacance_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

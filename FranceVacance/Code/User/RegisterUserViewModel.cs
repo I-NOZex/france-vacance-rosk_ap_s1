@@ -17,28 +17,42 @@ namespace FranceVacance.Code.User
         private string _vPass;
         private string _vConfirmPass;
         private string _vEmail;
+        private string _userError { get; set; }
+        private string _passError { get; set; }
+        private string _confirmPassError { get; set; }
+        private string _emailError { get; set; }
+
         private UserService _userService;
         private UserModel _userModel;
-        public string UserError;
-        public string PassError;
-        public string ConfirmPassError;
-        public string EmailError;
+        public RelayCommand CreatingAnAccount { get; set; }
 
         public string VUsername
         {
             get { return _vUsername; }
-            set { _vUsername = value; }
+            set
+            {
+                _vUsername = value;
+                OnPropertyChanged("VUsername");
+            }
         }
 
         public string VPass
         {
             get { return _vPass; }
-            set { _vPass = value; }
+            set
+            {
+                _vPass = value;
+                OnPropertyChanged("VPass");
+            }
         }
         public string VConfirmPass
         {
             get { return _vConfirmPass; }
-            set { _vConfirmPass = value; }
+            set
+            {
+                _vConfirmPass = value;
+                OnPropertyChanged("VConfirmPass");
+            }
         }
 
         public string VEmail
@@ -47,9 +61,51 @@ namespace FranceVacance.Code.User
             set
             {
                 _vEmail = value;
-                // OnPropertyChanged("LIST");
+                OnPropertyChanged("VEmail");
             }
         }
+
+        public string UserError
+        {
+            get => _userError;
+            set
+            {
+                _userError = value;
+                OnPropertyChanged("UserError");
+            }
+        }
+
+        public string PassError
+        {
+            get => _passError;
+            set
+            {
+                _passError = value;
+                OnPropertyChanged("PassError");
+            }
+        }
+
+        public string ConfirmPassError
+        {
+            get => _confirmPassError;
+            set
+            {
+                _confirmPassError = value;
+                OnPropertyChanged("ConfirmPassError");
+            }
+        }
+
+        public string EmailError
+        {
+            get => _emailError;
+            set
+            {
+                _emailError = value;
+                OnPropertyChanged("EmailError");
+            }
+        }
+
+
         public RegisterUserViewModel()
         {
             UserViewModel.Instance.LoadData();
@@ -84,41 +140,26 @@ namespace FranceVacance.Code.User
 
             return false;
         }
-        public bool IntegerValidator(string input)
-        {
-            string pattern = "[^0-9]";
-            if (Regex.IsMatch(input, pattern))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private void ClearText(string user, string pass)
-        {
-            user = String.Empty;
-            pass = String.Empty;
-        }
 
 
-        public bool ValidationData()
+        public bool ValidateData()
         {
-           
+            ConfirmPassError = "";
+            UserError = "";
+            EmailError = "";
+            PassError = "";
+
             //check if the email is valid
             if (StringValidator(VUsername) == false)
             {
-                ErrorMessage = "Enter valid username";
+                UserError = "Enter valid username";
                 return false;
             }
             // checks if the pass has more than 8 characters
             else if (VPass.Length < 8)
-            {
-               
+            {          
                 PassError = "The password is below 8 characters!";
-
+                return false;
             }
             //check if the email is valid
             else if (EmailValidator(VEmail) == false)
@@ -126,7 +167,7 @@ namespace FranceVacance.Code.User
                 EmailError = "Enter valid email";
                 return false;
             }
-          else if (VPass != ConfirmPassError)
+          else if (VPass != VConfirmPass)
             {
                 ConfirmPassError = "Password doesn't match";
                 return false;
@@ -144,41 +185,11 @@ namespace FranceVacance.Code.User
             return true;
         }
 
-    public string ErrorMessage
-    {
-        get { return _vEmail; }
-
-        set
-        {
-            _vEmail = value;
-            OnPropertyChanged("ErrorMessage");
-        }
-    }
-
-
-
-    public bool Validation()
-    {
-        // VUsername;
-        // VPass;
-        // VEmail;
-        return true;
-    }
-    public RelayCommand CreatingAnAccount { get; set; }
-
-        //public async void CreateUser()
-        //{
-
-        //   // UserInfo NewUser = new UserInfo(VUsername,VPass,VEmail);
-        //    RegisteredUsers.Add(NewUser);
-        //    await _userService.SaveDataAsync(RegisteredUsers);
-
-        //}
-        private async void AddUser()
+        private void AddUser()
         {
             var UserVmInstance = UserViewModel.Instance;
-            bool isValid = Validation();
-            if (isValid)
+
+            if (ValidateData())
             {
                 UserModel newUser = new UserModel(VUsername, VPass, VEmail);
 
@@ -187,9 +198,6 @@ namespace FranceVacance.Code.User
             }
 
         }
-
-
-
 
     }
 }

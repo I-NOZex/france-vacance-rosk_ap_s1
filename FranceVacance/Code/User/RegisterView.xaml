@@ -2,14 +2,21 @@
      x:Class="FranceVacance.Code.User.RegisterView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-   
+    
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="using:Windows.System"
+    xmlns:user="using:FranceVacance.Code.User"
     mc:Ignorable="d"
     RequestedTheme="Dark"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid >
+      
+        <Grid.DataContext>
+            <user:RegisterUserViewModel/>
+        </Grid.DataContext>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="119*"/>
             <RowDefinition Height="237*"/>
@@ -24,24 +31,24 @@
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="10.5,10,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="454" Width="337">
             <StackPanel Height="75">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Username"/>
-                <TextBox TextWrapping="Wrap" PlaceholderText="Enter your username..."/>
+                <TextBox TextWrapping="Wrap" PlaceholderText="Enter your username..." Text="{Binding VUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
             <StackPanel Height="75">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="e-mail"/>
-                <TextBox TextWrapping="Wrap" PlaceholderText="Enter your e-mail..."/>
+                <TextBox TextWrapping="Wrap" PlaceholderText="Enter your e-mail..." Text="{Binding VEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Height="75">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Password"/>
-                <TextBox TextWrapping="Wrap" PlaceholderText="Enter your password.."/>
+                <PasswordBox  PlaceholderText="Enter your password.." Password="{Binding VPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Height="75">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Confirm Password"/>
-                <TextBox TextWrapping="Wrap" PlaceholderText="Repeat your password.."/>
+                <PasswordBox PlaceholderText="Repeat your password.." Password="{Binding VConfirmPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
 
         </StackPanel>
-        <Button Content="Create an account" HorizontalAlignment="Left" Margin="10.5,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="35" Width="158" Background="{ThemeResource AccentButtonBackground}" Grid.Column="1"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="14,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="35" Width="158" Background="{ThemeResource AccentButtonBackground}" Grid.Column="2"/>
+        <Button Content="Create an account" HorizontalAlignment="Left" Margin="10.5,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="35" Width="158" Background="{ThemeResource AccentButtonBackground}" Grid.Column="1"  Command="{Binding CreatingAnAccount}" />
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="14,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="35" Width="158" Background="{ThemeResource AccentButtonBackground}" Grid.Column="2" Click="Btn_Cancel_Click" />
 
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10.5,110,0,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" Height="85" Width="337" FontSize="36" Grid.ColumnSpan="2"/>
 

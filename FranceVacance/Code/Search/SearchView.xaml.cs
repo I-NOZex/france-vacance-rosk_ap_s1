@@ -12,14 +12,16 @@ namespace FranceVacance.Code.Search
     /// </summary>
     public sealed partial class SearchView : Page
     {
-        public SearchView() {
+        public SearchView()
+        {
 
             this.InitializeComponent();
         }
 
 
 
-        private void autobox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args) {
+        private void autobox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
             var VM = (this.DataContext as SearchViewModel);
                 VM.Search(
                     byName: VM.SearchAccommodation.Name.Length > 0,
@@ -31,7 +33,8 @@ namespace FranceVacance.Code.Search
         //I am Borislav's creation :), so don't mind me
         
 
-        private void Btn_register_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e) {
+        private void Btn_register_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
             Frame.Navigate(typeof(RegisterView));
         }
     }

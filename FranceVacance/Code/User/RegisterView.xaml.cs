@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using FranceVacance.Code.Search;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,5 +27,18 @@ namespace FranceVacance.Code.User
         {
             this.InitializeComponent();
         }
+
+        private void Btn_Cancel_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SearchView));
+        }
+
+        //private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
+
+
+
 }

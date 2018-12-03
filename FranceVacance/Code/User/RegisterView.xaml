@@ -29,22 +29,25 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="10.5,10,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="454" Width="337">
-            <StackPanel Height="75" Margin="0,0,0,20">
+            <StackPanel Height="85" Margin="0,0,0,20">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Username"/>
                 <TextBox TextWrapping="Wrap" PlaceholderText="Enter your username..." Text="{Binding VUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock x:Name="txt_usernameError" Text="{Binding UserError}" TextWrapping="Wrap" Foreground="#FFAA0000" Padding="10,0,10,0" />
             </StackPanel>
-            <StackPanel Height="75">
+            <StackPanel Height="85">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="e-mail"/>
                 <TextBox TextWrapping="Wrap" PlaceholderText="Enter your e-mail..." Text="{Binding VEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Margin="0,0,0,0" Text="{Binding EmailError}" Foreground="#FFAA0000" TextWrapping="Wrap"/>
             </StackPanel>
-            <StackPanel Height="75">
+            <StackPanel Height="85">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Password"/>
                 <PasswordBox  PlaceholderText="Enter your password.." Password="{Binding VPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Margin="0,0,0,0" Text="{Binding PassError}" Foreground="#FFAA0000" TextWrapping="Wrap"/>
             </StackPanel>
-            <StackPanel Height="75">
+            <StackPanel Height="85">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Confirm Password"/>
                 <PasswordBox PlaceholderText="Repeat your password.." Password="{Binding VConfirmPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Margin="0,0,0,0" Text="{Binding ConfirmPassError}" Foreground="#FFAA0000" TextWrapping="Wrap"/>
             </StackPanel>
 
         </StackPanel>

@@ -179,7 +179,7 @@ namespace FranceVacance.Code.User
             foreach (var user in UserViewModel.Instance.RegisteredUsers)
             {
                 if (VEmail == user.Email)
-                {
+                { 
                 EmailError = "Email is not available";
                     return false;
                 }

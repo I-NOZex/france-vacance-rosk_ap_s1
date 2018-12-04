@@ -37,6 +37,10 @@ namespace FranceVacance.Code.Search
         {
             Frame.Navigate(typeof(RegisterView));
         }
+
+        private void Btn_login_Click(object sender, RoutedEventArgs e) {
+            Frame.Navigate(typeof(LoginView));
+        }
     }
 }
 

@@ -101,6 +101,7 @@
       <DependentUpon>UnitTestApp.xaml</DependentUpon>
     </Compile>
     <Compile Include="AccommodationViewModelTest.cs" />
+    <Compile Include="UserViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="UnitTestApp.xaml">

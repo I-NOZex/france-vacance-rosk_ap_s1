@@ -14,6 +14,7 @@
       Width="Auto">
 
     <Page.Resources>
+
         <helpers:CurrencyToDkkConverter x:Key="CurrencyToDkkConverter" />
         <helpers:DateOperationsConverter x:Key="DateOperationsConverter" />
     </Page.Resources>

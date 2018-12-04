@@ -44,5 +44,6 @@ namespace FranceVacance.Code.Accommodation {
             _accommodationService = new AccommodationService();
             Accommodations = new ObservableCollection<AccommodationModel>();
         }
+
     }
 }

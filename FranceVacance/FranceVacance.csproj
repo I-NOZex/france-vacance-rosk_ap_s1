@@ -110,12 +110,17 @@
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Code\Accommodation\AccommodationModel.cs" />
+    <Compile Include="Code\User\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Code\User\UserRoles.cs" />
+    <Compile Include="Code\User\UserService.cs" />
+    <Compile Include="Code\User\RegisterUserViewModel.cs" />
     <Compile Include="Code\User\LoginViewModel.cs" />
     <Compile Include="Code\User\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Code\User\UserModel.cs" />
-    <Compile Include="Code\User\UserService.cs" />
     <Compile Include="Code\User\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Code\Helpers\RelayCommand.cs" />
@@ -128,6 +133,7 @@
     </AppxManifest>
     <Content Include="Assets\accommodations.json" />
     <Content Include="Assets\bookings.json" />
+    <Content Include="Assets\users.json" />
     <None Include="FranceVacance_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +154,10 @@
     <Page Include="Code\Search\SearchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Code\User\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Code\User\LoginView.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -12,6 +12,7 @@ namespace FranceVacance.Code.User {
         private string _username { get; set; }
         private string _email { get; set; }
         private string _password { get; set; }
+        private UserRole _role { get; set; }
 
         public string Username {
             get { return _username; }
@@ -26,6 +27,12 @@ namespace FranceVacance.Code.User {
         public string Email {
             get { return _email; }
             set { _email = value; }
+        }
+
+        public UserRole  Role
+        {
+            get { return _role; }
+            set { _role = value; }
         }
 
         public UserModel(string username, string password, string email) {

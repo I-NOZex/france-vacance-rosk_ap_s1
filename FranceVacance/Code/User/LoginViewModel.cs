@@ -8,7 +8,6 @@ namespace FranceVacance.Code.User {
     public class LoginViewModel {
         private string _password { get; set; }
         private string _email { get; set; }
-        private UserViewModel _userViewModel;
 
         public string Password {
             get { return _password; }
@@ -21,18 +20,21 @@ namespace FranceVacance.Code.User {
         }
 
         public LoginViewModel() {
-            _userViewModel.LoadData();
+            UserViewModel.Instance.LoadData();
+            
         }
 
 
 
         public void Login() {
             //get login form data
-            // invoke _userViewModel.Instance.GetUser()
-                // if finds the user:
-                    //set _userViewModel.Instance.CurrentUser as the matched user
-                // else:
-                    // show an error
+            UserModel user = UserViewModel.Instance.GetUser(Email, Password);
+            if (user != null)
+                UserViewModel.Instance.CurrentUser = user;
+            // if finds the user:
+            //set _userViewModel.Instance.CurrentUser as the matched user
+            // else:
+            // show an error
         }
     }
 }

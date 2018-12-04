@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FranceVacance.Code.User
 {
-    class UserService :  FileService<UserModel>
+    class UserService : FileService<UserModel>
     {
     private const string FILE_NAME = "users.json";
 
@@ -22,11 +22,5 @@ namespace FranceVacance.Code.User
         return await SaveData(FILE_NAME, usersCollection);
     }
 
-    /*public AccommodationService(AccommodationViewModel accommodationViewModel) {
-        _accommodationViewModel = accommodationViewModel;
-    }*/
     }
-
-    
-    
 }

@@ -70,7 +70,8 @@ namespace FranceVacance.Code.Search {
 
             ObservableCollection<Accommodation.AccommodationModel> filteredResults = 
                 new ObservableCollection<Accommodation.AccommodationModel>();
-            foreach (var _accommodation in AccommodationViewModel.Accommodations) {
+            foreach (var _accommodation in AccommodationViewModel.Accommodations)
+            {
 
                 bool isNameMatch = false;
                 bool isPriceMatch = false;

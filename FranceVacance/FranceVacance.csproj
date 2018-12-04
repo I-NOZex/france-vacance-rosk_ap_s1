@@ -113,6 +113,7 @@
     <Compile Include="Code\User\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Code\User\UserRoles.cs" />
     <Compile Include="Code\User\UserService.cs" />
     <Compile Include="Code\User\RegisterUserViewModel.cs" />
     <Compile Include="Code\User\LoginViewModel.cs" />

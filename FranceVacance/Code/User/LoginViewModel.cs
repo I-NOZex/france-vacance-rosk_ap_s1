@@ -29,7 +29,8 @@ namespace FranceVacance.Code.User {
         public void Login() {
             //get login form data
             UserModel user = UserViewModel.Instance.GetUser(Email, Password);
-            
+            if (user != null)
+                UserViewModel.Instance.CurrentUser = user;
             // if finds the user:
             //set _userViewModel.Instance.CurrentUser as the matched user
             // else:

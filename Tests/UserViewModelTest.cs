@@ -9,6 +9,7 @@ namespace Tests
         [TestMethod]
         public void Login()
         {
+
             UserViewModel.Instance.RegisteredUsers.Add(new UserModel()
             {
                 Email = $"email",
@@ -21,6 +22,10 @@ namespace Tests
             LoginVM.Password = $"password";
 
             LoginVM.Login();
+
+            Assert.IsNotNull(UserViewModel.Instance.CurrentUser);
+            Assert.AreEqual(UserViewModel.Instance.CurrentUser.Email, $"email");
+            Assert.AreEqual(UserViewModel.Instance.CurrentUser.Password, $"password");
         }
     }
 }

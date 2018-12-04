@@ -104,23 +104,23 @@
         <StackPanel x:Name="pnl_head"
                     VerticalAlignment="Top"
                     Grid.Row="1"
-                    Grid.ColumnSpan="5"
+                    Grid.ColumnSpan="4"
                     Grid.Column="1"
-                    Margin="0.6,17,174,0"
+                    Margin="1,17,0,0"
                     Grid.RowSpan="1"
                     Padding="10,10,10,10"
                     HorizontalAlignment="Stretch">
             <TextBlock x:Name="lbl_title"
-                       Text="France Vacance - Travel Agency"
+                       Text="France Vacance Travel Agency"
                        TextWrapping="Wrap"
                        VerticalAlignment="Bottom"
                        FontSize="36"
                        FontFamily="Yu Gothic UI Semilight"
                        FontWeight="Bold"
+                       FocusVisualPrimaryBrush="Black"
                        HorizontalAlignment="Stretch"
                        Padding="0,10,0,10"
-                       Foreground="{ThemeResource SystemColorHighlightBrush}"
-                       FocusVisualPrimaryBrush="#FF007ACC" />
+                       Foreground="{ThemeResource SystemControlHighlightAccentRevealBackgroundBrush}" />
             <AutoSuggestBox x:Name="autobox"
                             PlaceholderText="Search your dream accommodation..."
                             Text="{Binding SearchAccommodation.Name, Mode=TwoWay}"
@@ -133,23 +133,26 @@
               Grid.Column="1"
               Margin="0,0,0,-1"
               Grid.Row="2"
-              Grid.ColumnSpan="4"
-              Grid.RowSpan="1">
+              Grid.ColumnSpan="2"
+              Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"
                                MinHeight="0" />
                 <RowDefinition Height="Auto"
                                MinHeight="0" />
+                <RowDefinition Height="Auto"
+                               MinHeight="0" />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="33*" />
-                <ColumnDefinition Width="33*" />
-                <ColumnDefinition Width="33*" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="150" />
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="pnl_checkin"
-                        Margin="0,0,0,10"
-                        VerticalAlignment="Top"
+                        Margin="0,0,0,0"
+                        VerticalAlignment="Center"
                         Padding="10,0,5,0"
+                        Grid.ColumnSpan="1"
                         HorizontalAlignment="Stretch">
                 <TextBlock x:Name="lbl_checkin"
                            Text="Check-in Date"
@@ -165,10 +168,12 @@
                                     DateFormat="{}{month.integer}/{day.integer}/{year.full}" />
             </StackPanel>
             <StackPanel x:Name="pnl_checkout"
-                        Margin="0,0,0,10"
-                        VerticalAlignment="Top"
+                        Margin="0,0,0,0"
+                        VerticalAlignment="Center"
+                        Padding="10,0,5,0"
+                        Grid.ColumnSpan="1"
                         Grid.Column="1"
-                        Padding="5,0,5,0">
+                        HorizontalAlignment="Stretch">
                 <TextBlock x:Name="lbl_checkout"
                            Text="Check-out Date"
                            HorizontalAlignment="Stretch"
@@ -188,10 +193,11 @@
             </StackPanel>
             <StackPanel x:Name="pnl_price"
                         Margin="0,0,0,0"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Center"
                         Grid.Column="0"
                         Padding="10,0,5,0"
-                        Grid.Row="1">
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2">
                 <TextBlock x:Name="lbl_price"
                            Text="Price"
                            Margin="0,0,0,0"
@@ -211,34 +217,14 @@
                         Padding="0,0,0,0"
                         TickPlacement="Outside" />
             </StackPanel>
-            <StackPanel x:Name="pnl_people"
-                        Margin="0,0,0,10"
-                        VerticalAlignment="Top"
-                        Grid.Column="2"
-                        Padding="5,0,10,0"
-                        HorizontalAlignment="Stretch">
-                <TextBlock x:Name="lbl_noPeople"
-                           Text="Number of People"
-                           Margin="0,0,0,0"
-                           TextWrapping="Wrap"
-                           HorizontalAlignment="Stretch"
-                           VerticalAlignment="Stretch"
-                           Padding="0,0,0,20"
-                           Height="25" />
-                <TextBox x:Name="txt_noPeople"
-                         Margin="0,5,0,5"
-                         Text=""
-                         Padding="0,0,0,0"
-                         IsEnabled="False" />
-            </StackPanel>
             <StackPanel x:Name="pnl_address"
                         Margin="0,0,0,0"
                         VerticalAlignment="Top"
-                        Grid.Column="1"
+                        Grid.Column="0"
                         Padding="5,0,10,0"
-                        Grid.Row="1"
-                        HorizontalAlignment="Stretch"
-                        Grid.ColumnSpan="2">
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Stretch">
                 <TextBlock x:Name="lbl_address"
                            Text="Address"
                            Margin="0,0,0,0"
@@ -250,13 +236,13 @@
             </StackPanel>
         </Grid>
         <ListView ItemsSource="{Binding AccommodationsFiltered.Accommodations, Mode=TwoWay}"
-                  HorizontalAlignment="Stretch"
                   Margin="0,0,0,0"
-                  Grid.Row="3"
-                  VerticalAlignment="Stretch"
-                  Grid.Column="1"
-                  Grid.RowSpan="1"
-                  Grid.ColumnSpan="4">
+                  Grid.Row="2"
+                  Grid.Column="3"
+                  Grid.RowSpan="2"
+                  Grid.ColumnSpan="2"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="5,5,5,5"

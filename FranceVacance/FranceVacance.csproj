@@ -111,6 +111,9 @@
     </Compile>
     <Compile Include="Code\Accommodation\AccommodationModel.cs" />
     <Compile Include="Code\User\LoginViewModel.cs" />
+    <Compile Include="Code\User\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Code\User\UserModel.cs" />
     <Compile Include="Code\User\UserService.cs" />
     <Compile Include="Code\User\UserViewModel.cs" />
@@ -143,6 +146,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Code\Search\SearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Code\User\LoginView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

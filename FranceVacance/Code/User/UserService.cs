@@ -27,6 +27,6 @@ namespace FranceVacance.Code.User
     }*/
     }
 
-    {
-    }
+    
+    
 }

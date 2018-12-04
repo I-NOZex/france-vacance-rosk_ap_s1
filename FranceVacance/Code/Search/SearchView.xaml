@@ -59,7 +59,6 @@
 
 
         <Image Source="ms-appx:///Assets/france_flag_bg.jpg"
-               Grid.Row="0"
                Grid.RowSpan="6"
                Grid.ColumnSpan="12"
                Margin="0,0,0,0"
@@ -70,19 +69,21 @@
                     Grid.RowSpan="6"
                     Grid.ColumnSpan="12"
                     Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}"
-                    Grid.Column="0"
                     HorizontalAlignment="Stretch"
-                    Margin="0,0,0,0"
-                    VerticalAlignment="Stretch" />
+                    VerticalAlignment="Stretch"
+                    Padding="0,0,0,0" />
 
 
         <StackPanel x:Name="pnl_loginregister"
+                    
                     VerticalAlignment="Top"
                     Grid.Column="1"
                     Orientation="Horizontal"
                     Grid.RowSpan="1"
                     Grid.ColumnSpan="10"
-                    Margin="0,0,0,0">
+                    Margin="0,31,0,0"
+                    HorizontalAlignment="Right"
+                    Canvas.ZIndex="10">
 
             <Button x:Name="btn_register"
                     Content="Registration"
@@ -112,10 +113,10 @@
         </StackPanel>
         <StackPanel x:Name="pnl_head"
                     VerticalAlignment="Bottom"
-                    Grid.Row="1"
+                    Grid.Row="0"
                     Grid.ColumnSpan="10"
                     Grid.Column="1"
-                    Margin="0,0,0,15"
+                    Margin="0,0,0,0"
                     Grid.RowSpan="1"
                     Padding="0,0,0,0"
                     Orientation="Vertical">
@@ -128,7 +129,7 @@
                        FontWeight="Bold"
                        FocusVisualPrimaryBrush="Black"
                        HorizontalAlignment="Stretch"
-                       Padding="0,10,0,10"
+                       Padding="0,0,0,10"
                        Foreground="{ThemeResource SystemControlHighlightAccentRevealBackgroundBrush}" />
             <AutoSuggestBox x:Name="autobox"
                             PlaceholderText="Search your dream accommodation..."
@@ -140,10 +141,10 @@
         </StackPanel>
         <Grid x:Name="grd_filters"
               Grid.Column="1"
-              Margin="0,0,15,15"
-              Grid.Row="2"
+              Margin="0,15,15,15"
+              Grid.Row="1"
               Grid.ColumnSpan="3"
-              Grid.RowSpan="4"
+              Grid.RowSpan="5"
               HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch"
               Background="{StaticResource MyAcrylicBrush}"
@@ -242,10 +243,10 @@
             </StackPanel>
         </Grid>
         <ListView ItemsSource="{Binding AccommodationsFiltered.Accommodations, Mode=TwoWay}"
-                  Margin="15,0,0,15"
-                  Grid.Row="2"
+                  Margin="15,15,0,15"
+                  Grid.Row="1"
                   Grid.Column="4"
-                  Grid.RowSpan="4"
+                  Grid.RowSpan="5"
                   Grid.ColumnSpan="7"
                   VerticalContentAlignment="Stretch"
                   Background="{StaticResource MyAcrylicBrush}"

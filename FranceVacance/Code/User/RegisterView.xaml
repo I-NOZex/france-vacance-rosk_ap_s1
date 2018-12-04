@@ -21,9 +21,9 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="30*" />
-            <ColumnDefinition Width="30*" />
-            <ColumnDefinition Width="30*" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="480" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <!--background image -->
@@ -43,7 +43,7 @@
                     Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush }"
                     Grid.Column="0"
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                    Opacity="01"/>
+                    Opacity="01" />
         <!--end bg -->
         <StackPanel Grid.Column="1"
                     Grid.Row="0"

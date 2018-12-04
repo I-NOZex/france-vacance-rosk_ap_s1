@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using FranceVacance.Code.Search;
 
@@ -30,7 +31,7 @@ namespace FranceVacance.Code.User
 
         private void Btn_Cancel_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SearchView));
+            Frame.Navigate(typeof(SearchView), null, new DrillInNavigationTransitionInfo());
         }
 
         //private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

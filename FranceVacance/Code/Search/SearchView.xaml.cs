@@ -1,5 +1,6 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using FranceVacance.Code.User;
 using Microsoft.Toolkit.Uwp.UI.Animations;
@@ -36,11 +37,11 @@ namespace FranceVacance.Code.Search
 
         private void Btn_register_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(RegisterView));
+            Frame.Navigate(typeof(RegisterView), null, new DrillInNavigationTransitionInfo());
         }
 
         private void Btn_login_Click(object sender, RoutedEventArgs e) {
-            Frame.Navigate(typeof(LoginView));
+            Frame.Navigate(typeof(LoginView), null, new DrillInNavigationTransitionInfo());
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e) {

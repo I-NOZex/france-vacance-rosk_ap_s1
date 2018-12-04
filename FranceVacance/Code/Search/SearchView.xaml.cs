@@ -32,8 +32,7 @@ namespace FranceVacance.Code.Search
                     byDate: true
                 );
         }
-        //I am Borislav's creation :), so don't mind me
-        
+
 
         private void Btn_register_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -57,6 +56,27 @@ namespace FranceVacance.Code.Search
                 VM.UserInstance = null;
             }
             base.OnNavigatedTo(e);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            var VM = (this.DataContext as SearchViewModel);
+            VM.Search(
+                byName: VM.SearchAccommodation.Name.Length > 0,
+                byMaxPrice: true,
+                byAddress: VM.SearchAccommodation.Address.Length > 0,
+                byDate: true
+            );
+        }
+
+        private void Btn_clear_Click(object sender, RoutedEventArgs e) {
+            var VM = (this.DataContext as SearchViewModel);
+            VM.SearchAccommodation.Reset();
+            VM.Search(
+                byName: VM.SearchAccommodation.Name.Length > 0,
+                byMaxPrice: true,
+                byAddress: VM.SearchAccommodation.Address.Length > 0,
+                byDate: true
+            );
         }
     }
 }

@@ -150,20 +150,17 @@
               Background="{StaticResource MyAcrylicBrush}"
               Padding="15,15,15,15">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"
-                               MinHeight="0" />
-                <RowDefinition Height="Auto"
-                               MinHeight="0" />
-                <RowDefinition Height="Auto"
-                               MinHeight="0" />
-                <RowDefinition />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*" />
                 <ColumnDefinition Width="50*" />
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="pnl_checkin"
-                        Margin="0,0,0,15"
+                        Margin="0,0,0,0"
                         VerticalAlignment="Top"
                         Padding="10,0,5,0"
                         Grid.ColumnSpan="1"
@@ -180,7 +177,7 @@
                                     DateFormat="{}{month.integer}/{day.integer}/{year.full}" />
             </StackPanel>
             <StackPanel x:Name="pnl_checkout"
-                        Margin="0,0,0,15"
+                        Margin="0,0,0,0"
                         VerticalAlignment="Top"
                         Padding="10,0,5,0"
                         Grid.ColumnSpan="1"
@@ -201,8 +198,8 @@
                                     DateFormat="{}{month.integer}/{day.integer}/{year.full}" />
             </StackPanel>
             <StackPanel x:Name="pnl_price"
-                        Margin="0,0,0,15"
-                        VerticalAlignment="Center"
+                        Margin="0,0,0,0"
+                        VerticalAlignment="Top"
                         Grid.Column="0"
                         Padding="10,0,5,0"
                         Grid.Row="1"
@@ -228,7 +225,7 @@
                         Margin="0,0,0,0"
                         VerticalAlignment="Top"
                         Grid.Column="0"
-                        Padding="5,0,10,0"
+                        Padding="10,0,5,0"
                         Grid.Row="2"
                         Grid.ColumnSpan="2"
                         HorizontalAlignment="Stretch">
@@ -241,6 +238,37 @@
                 <TextBox Name="txt_address"
                          Text="{Binding SearchAccommodation.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
+
+            <StackPanel Grid.Row="3">
+                <Button Content="Search"
+                        Name="btn_search"
+                        HorizontalAlignment="Stretch"
+                        Margin="10,0,5,0"
+                        Grid.Row="3"
+                        VerticalAlignment="Bottom"
+                        Background="{ThemeResource AccentButtonBackground}"
+                        Grid.ColumnSpan="1"
+                        Click="Button_Click"
+                        Padding="8,4,8,4" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="3"
+                        Grid.Column="1"
+                        Margin="0,0,0,0"
+                        Padding="10,0,5,0">
+                <Button Content="Reset"
+                        Name="btn_clear"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,0,0,0"
+                        Grid.Row="3"
+                        VerticalAlignment="Bottom"
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Click="Btn_clear_Click" />
+            </StackPanel>
+                
+                
+         
         </Grid>
         <ListView ItemsSource="{Binding AccommodationsFiltered.Accommodations, Mode=TwoWay}"
                   Margin="15,15,0,15"

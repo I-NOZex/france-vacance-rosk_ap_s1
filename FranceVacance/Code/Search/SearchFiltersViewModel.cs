@@ -55,10 +55,15 @@ namespace FranceVacance.Code.Search {
         }
 
         public SearchFiltersViewModel() {
+            Reset();
+        }
+
+        public void Reset() {
             Name = "";
             Address = "";
-            CheckIn = null;
-            CheckOut = null;
+            CheckIn = DateTimeOffset.Now;
+            CheckOut = DateTimeOffset.Now.AddDays(1);
+            SelectedMaxPrice = MaxPrice;
         }
     }
 }

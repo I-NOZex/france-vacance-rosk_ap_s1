@@ -77,8 +77,7 @@
                         VerticalAlignment="Bottom">
                 <StackPanel Height="85">
                     <TextBlock Height="25"
-                               TextWrapping="Wrap"
-                               Text="Username" />
+                               TextWrapping="Wrap"><Run Text="Username" /><Run Text=":" /></TextBlock>
                     <TextBox TextWrapping="Wrap"
                              PlaceholderText="Enter your username..."
                              Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -87,8 +86,7 @@
 
                 <StackPanel Height="85">
                     <TextBlock Height="25"
-                               TextWrapping="Wrap"
-                               Text="Password" />
+                               TextWrapping="Wrap"><Run Text="Password" /><Run Text=":" /></TextBlock>
                     <PasswordBox  PlaceholderText="Enter your password.."
                                   Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>

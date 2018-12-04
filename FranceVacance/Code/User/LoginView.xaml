@@ -9,46 +9,135 @@
     xmlns:user="using:FranceVacance.Code.User"
     mc:Ignorable="d"
     RequestedTheme="Dark"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="#FF1B1B1B">
 
-    <Grid >
-
+    <Grid>
         <Grid.DataContext>
             <user:LoginViewModel/>
         </Grid.DataContext>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="119*"/>
-            <RowDefinition Height="206*"/>
-            <RowDefinition Height="31*"/>
-            <RowDefinition Height="144*"/>
+            <RowDefinition />
+            <RowDefinition Height="8*" />
+            <RowDefinition />
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="1.25*"/>
-            <ColumnDefinition Width="1.25*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="30*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0,154.6,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="215" Width="337">
-            <StackPanel Height="85">
-                <TextBlock Height="25" TextWrapping="Wrap" Text="Username"/>
-                <TextBox TextWrapping="Wrap" PlaceholderText="Enter your username..." Text="{Binding VUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Height="25" TextWrapping="Wrap"  Foreground="#FFAA0000"/>
+
+        <Image Source="ms-appx:///Assets/france_flag_bg.jpg"
+               Grid.Row="0"
+               Grid.RowSpan="4"
+               Grid.ColumnSpan="6"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"
+               Margin="0,0,0,0"
+               Opacity="1"
+               Name="BgImage"
+               Stretch="Fill" />
+        <StackPanel Grid.Row="0"
+                    Grid.RowSpan="4"
+                    Grid.ColumnSpan="6"
+                    Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush   }"
+                    Grid.Column="0" />
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="0"
+                    VerticalAlignment="Center"
+                    Background="{StaticResource MyAcrylicBrush}"
+                    Padding="30,30,30,30"
+                    Grid.RowSpan="3">
+            <StackPanel Grid.Column="1"
+                        Grid.Row="1"
+                        VerticalAlignment="Top"
+                        Margin="0,0,0,15"
+                        HorizontalAlignment="Stretch">
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0"
+                           TextWrapping="Wrap"
+                           Text="Login"
+                           VerticalAlignment="Stretch"
+                           FontSize="36"
+                           Grid.Row="2" />
             </StackPanel>
-            
+            <StackPanel Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,0,0,15"
+                        Grid.Row="1"
+                        VerticalAlignment="Bottom">
+                <StackPanel Height="85">
+                    <TextBlock Height="25"
+                               TextWrapping="Wrap"
+                               Text="Username" />
+                    <TextBox TextWrapping="Wrap"
+                             PlaceholderText="Enter your username..."
+                             Text="{Binding VUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Height="25"
+                               TextWrapping="Wrap"
+                               Foreground="#FFAA0000" />
+                </StackPanel>
 
-            <StackPanel Height="85">
-                <TextBlock Height="25" TextWrapping="Wrap" Text="Password"/>
-                <PasswordBox  PlaceholderText="Enter your password.." Password="{Binding VPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBlock Height="25" TextWrapping="Wrap"  Foreground="#FFAA0000"/>
+
+                <StackPanel Height="85">
+                    <TextBlock Height="25"
+                               TextWrapping="Wrap"
+                               Text="Password" />
+                    <PasswordBox  PlaceholderText="Enter your password.."
+                                  Password="{Binding VPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Height="25"
+                               TextWrapping="Wrap"
+                               Foreground="#FFAA0000" />
+                </StackPanel>
+
+
             </StackPanel>
+            <Grid Grid.Row="1"
+                  Grid.Column="1"
+                  VerticalAlignment="Bottom"
+                  Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button Content="Sign in"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,0,0,6"
+                        Grid.Row="0"
+                        VerticalAlignment="Top"
+                        Background="{ThemeResource AccentButtonBackground}"
+                        Grid.ColumnSpan="2" />
+
+                <Button Content="Create an account"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,0,3,0"
+                        VerticalAlignment="Top"
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Command="{Binding CreatingAnAccount}"
+                        Background="#DD007ACC" />
+
+                <Button Content="Cancel"
+                        HorizontalAlignment="Stretch"
+                        Margin="3,0,0,0"
+                        VerticalAlignment="Top"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Click="Btn_Cancel_Click" />
 
 
+
+
+            </Grid>
         </StackPanel>
-        <Button Content="Create an account" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="35" Width="158" Background="{ThemeResource AccentButtonBackground}" Grid.Column="1"  Command="{Binding CreatingAnAccount}" />
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="14.4,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="35" Width="158" Background="{ThemeResource AccentButtonBackground}" Grid.Column="2" Click="Btn_Cancel_Click" />
-        <Button Content="Sing in" HorizontalAlignment="Center" Margin="0,9.6,0,0" Grid.Row="2" VerticalAlignment="Top" Height="35" Width="336" Background="{ThemeResource AccentButtonBackground}" Grid.Column="1"  Command="{Binding CreatingAnAccount}" Grid.ColumnSpan="2" />
-        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="0,110,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Height="85" Width="337" FontSize="36" Grid.ColumnSpan="2"/>
-
     </Grid>
+    
 </Page>

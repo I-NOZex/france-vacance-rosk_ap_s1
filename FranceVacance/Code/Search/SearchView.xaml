@@ -8,7 +8,9 @@
       RequestedTheme="Dark"
       xmlns:search="using:FranceVacance.Code.Search"
       xmlns:helpers="using:FranceVacance.Code.Helpers"
-      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+      Background="#FF1B1B1B"
       HorizontalAlignment="Stretch"
       VerticalAlignment="Stretch"
       Width="Auto">
@@ -42,6 +44,25 @@
             <ColumnDefinition Width="20*" />
             <ColumnDefinition Width="15*" />
         </Grid.ColumnDefinitions>
+
+
+        <Image Source="ms-appx:///Assets/france_flag_bg.jpg"
+               Grid.Row="0"
+               Grid.RowSpan="4"
+               Grid.ColumnSpan="6"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"
+               Margin="0,0,0,0"
+               Opacity="1"
+               Name="BgImage"
+               Stretch="Fill" />
+        <StackPanel Grid.Row="0"
+                    Grid.RowSpan="4"
+                    Grid.ColumnSpan="6"
+                    Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush   }"
+                    Grid.Column="0" />
+
+
         <StackPanel x:Name="pnl_loginregister"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
@@ -50,27 +71,47 @@
                     Height="100"
                     Grid.RowSpan="2">
             <Button x:Name="btn_register"
-                             Content="Registration"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Top"
-                             FontSize="14"
-                             Height="Auto"
+                    Content="Registration"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    FontSize="14"
+                    Height="Auto"
                     Margin="0,0,5,0"
                     Click="Btn_register_Click" />
             <Button x:Name="btn_login"
-                             Content="Login"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Top"
-                             FontSize="14"
-                             Click="Btn_login_Click" />
+                    Content="Login"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    FontSize="14"
+                    Click="Btn_login_Click" />
         </StackPanel>
-        <StackPanel x:Name="pnl_head" VerticalAlignment="Top" Grid.Row="1" Grid.ColumnSpan="5" Grid.Column="1" Margin="0.6,17,174,0" Grid.RowSpan="1" Padding="10,10,10,10" HorizontalAlignment="Stretch">
-            <TextBlock x:Name="lbl_title" Text="France Vacance Travel Agency" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="36" FontFamily="Yu Gothic UI Semilight" FontWeight="Bold" FocusVisualPrimaryBrush="Black" HorizontalAlignment="Stretch" Padding="0,10,0,10" Foreground="{ThemeResource SystemControlHighlightAccentRevealBackgroundBrush}"/>
-            <AutoSuggestBox
-                x:Name="autobox"
-                PlaceholderText="Search your dream accommodation..."
-                Text="{Binding SearchAccommodation.Name, Mode=TwoWay}"
-                QueryIcon="Find" VerticalAlignment="Center" FontSize="14" QuerySubmitted="autobox_QuerySubmitted" />
+        <StackPanel x:Name="pnl_head"
+                    VerticalAlignment="Top"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="5"
+                    Grid.Column="1"
+                    Margin="0.6,17,174,0"
+                    Grid.RowSpan="1"
+                    Padding="10,10,10,10"
+                    HorizontalAlignment="Stretch">
+            <TextBlock x:Name="lbl_title"
+                       Text="France Vacance Travel Agency"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Bottom"
+                       FontSize="36"
+                       FontFamily="Yu Gothic UI Semilight"
+                       FontWeight="Bold"
+                       FocusVisualPrimaryBrush="Black"
+                       HorizontalAlignment="Stretch"
+                       Padding="0,10,0,10"
+                       Foreground="{ThemeResource SystemControlHighlightAccentRevealBackgroundBrush}" />
+            <AutoSuggestBox x:Name="autobox"
+                            PlaceholderText="Search your dream accommodation..."
+                            Text="{Binding SearchAccommodation.Name, Mode=TwoWay}"
+                            QueryIcon="Find"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            QuerySubmitted="autobox_QuerySubmitted" />
         </StackPanel>
         <Grid x:Name="grd_filters"
               Grid.Column="1"
@@ -189,7 +230,7 @@
                            VerticalAlignment="Top"
                            Padding="0,0,0,0" />
                 <TextBox Name="txt_address"
-                         Text="{Binding SearchAccommodation.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                         Text="{Binding SearchAccommodation.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </Grid>
         <ListView ItemsSource="{Binding AccommodationsFiltered.Accommodations, Mode=TwoWay}"

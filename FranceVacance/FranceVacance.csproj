@@ -131,8 +131,10 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\france_flag_bg.jpg" />
     <Content Include="Assets\accommodations.json" />
     <Content Include="Assets\bookings.json" />
+    <Content Include="Assets\eiffel_tower_bg.png" />
     <Content Include="Assets\users.json" />
     <None Include="FranceVacance_TemporaryKey.pfx" />
   </ItemGroup>

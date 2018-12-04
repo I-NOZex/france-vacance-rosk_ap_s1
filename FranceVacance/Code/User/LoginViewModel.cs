@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FranceVacance.Code.Common;
 
 namespace FranceVacance.Code.User {
-    public class LoginViewModel {
+    public class LoginViewModel : ViewModelBase {
         private string _password { get; set; }
         private string _email { get; set; }
 

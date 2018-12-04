@@ -33,14 +33,14 @@
             <StackPanel Height="85">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Username"/>
                 <TextBox TextWrapping="Wrap" PlaceholderText="Enter your username..." Text="{Binding VUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Height="25" TextWrapping="Wrap" Text="Invalid username"/>
+                <TextBlock Height="25" TextWrapping="Wrap"  Foreground="#FFAA0000"/>
             </StackPanel>
             
 
             <StackPanel Height="85">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Password"/>
                 <PasswordBox  PlaceholderText="Enter your password.." Password="{Binding VPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBlock Height="25" TextWrapping="Wrap" Text="Invalid passoword"/>
+                <TextBlock Height="25" TextWrapping="Wrap"  Foreground="#FFAA0000"/>
             </StackPanel>
 
 

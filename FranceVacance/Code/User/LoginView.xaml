@@ -7,14 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:system="using:Windows.System"
     xmlns:user="using:FranceVacance.Code.User"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     mc:Ignorable="d"
     RequestedTheme="Dark"
     Background="#FF1B1B1B">
 
+    <Page.DataContext>
+        <user:LoginViewModel />
+    </Page.DataContext>
+
     <Grid>
-        <Grid.DataContext>
-            <user:LoginViewModel/>
-        </Grid.DataContext>
 
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -64,6 +66,10 @@
                            FontSize="36"
                            Grid.Row="2" />
             </StackPanel>
+            <TextBlock Height="25"
+                       TextWrapping="Wrap"
+                       Text="{Binding CredentialsError}"
+                       Foreground="#FFAA0000" />
             <StackPanel Grid.Column="1"
                         HorizontalAlignment="Stretch"
                         Margin="0,0,0,15"
@@ -75,10 +81,7 @@
                                Text="Username" />
                     <TextBox TextWrapping="Wrap"
                              PlaceholderText="Enter your username..."
-                             Text="{Binding VUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBlock Height="25"
-                               TextWrapping="Wrap"
-                               Foreground="#FFAA0000" />
+                             Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
 
 
@@ -87,10 +90,7 @@
                                TextWrapping="Wrap"
                                Text="Password" />
                     <PasswordBox  PlaceholderText="Enter your password.."
-                                  Password="{Binding VPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <TextBlock Height="25"
-                               TextWrapping="Wrap"
-                               Foreground="#FFAA0000" />
+                                  Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
 
 
@@ -113,8 +113,10 @@
                         Margin="0,0,0,6"
                         Grid.Row="0"
                         VerticalAlignment="Top"
+                        
                         Background="{ThemeResource AccentButtonBackground}"
-                        Grid.ColumnSpan="2" />
+                        Grid.ColumnSpan="2"
+                        Click="Button_Click" />
 
                 <Button Content="Create an account"
                         HorizontalAlignment="Stretch"

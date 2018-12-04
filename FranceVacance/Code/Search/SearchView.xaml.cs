@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
+using Windows.UI.Xaml.Navigation;
 using FranceVacance.Code.User;
 using Microsoft.Toolkit.Uwp.UI.Animations;
 
@@ -42,6 +42,21 @@ namespace FranceVacance.Code.Search
 
         private void Btn_login_Click(object sender, RoutedEventArgs e) {
             Frame.Navigate(typeof(LoginView));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
+            var VM = (this.DataContext as SearchViewModel);
+            
+            if (e.Parameter is UserModel && e.Parameter != null) {
+                VM.UserInstance = (UserModel)e.Parameter;
+                lbl_username.Visibility = Visibility.Visible;
+                lbl_welcomemsg.Visibility = Visibility.Visible;
+                btn_login.Visibility = Visibility.Collapsed;
+                btn_register.Visibility = Visibility.Collapsed;
+            } else {
+                VM.UserInstance = null;
+            }
+            base.OnNavigatedTo(e);
         }
     }
 }

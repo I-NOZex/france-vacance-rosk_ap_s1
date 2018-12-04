@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using FranceVacance.Code.Accommodation;
 using FranceVacance.Code.Booking;
 using FranceVacance.Code.Common;
+using FranceVacance.Code.User;
 
 namespace FranceVacance.Code.Search {
     public class SearchViewModel : ViewModelBase {
@@ -24,6 +25,8 @@ namespace FranceVacance.Code.Search {
                 _accommodationsFiltered = value;
             }
         }
+
+        public UserModel UserInstance { get; set; }
 
         public async Task InitializeData() {
             await AccommodationViewModel.FirstInstance.LoadData();

@@ -18,7 +18,7 @@ namespace Tests
 
 
             LoginViewModel LoginVM = new LoginViewModel();
-            LoginVM.Email = $"email";
+            LoginVM.Username = $"email";
             LoginVM.Password = $"password";
 
             LoginVM.Login();

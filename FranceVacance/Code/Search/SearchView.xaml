@@ -7,9 +7,11 @@
       mc:Ignorable="d"
       RequestedTheme="Dark"
       xmlns:search="using:FranceVacance.Code.Search"
+      xmlns:user="using:FranceVacance.Code.User"
       xmlns:helpers="using:FranceVacance.Code.Helpers"
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+      xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
       Background="#FF1B1B1B"
       HorizontalAlignment="Stretch"
       VerticalAlignment="Stretch"
@@ -19,6 +21,10 @@
 
         <helpers:CurrencyToDkkConverter x:Key="CurrencyToDkkConverter" />
         <helpers:DateOperationsConverter x:Key="DateOperationsConverter" />
+        <converters:EmptyCollectionToObjectConverter x:Key="NullToVisibility"
+                                                     EmptyValue="Visible"
+                                                     NotEmptyValue="Collapsed" />
+
     </Page.Resources>
 
     <Page.DataContext>
@@ -64,12 +70,13 @@
 
 
         <StackPanel x:Name="pnl_loginregister"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Stretch"
                     VerticalAlignment="Top"
                     Grid.Column="1"
                     Orientation="Horizontal"
-                    Height="100"
-                    Grid.RowSpan="2">
+                    Grid.RowSpan="1"
+                    Grid.ColumnSpan="4">
+
             <Button x:Name="btn_register"
                     Content="Registration"
                     HorizontalAlignment="Left"
@@ -77,13 +84,22 @@
                     FontSize="14"
                     Height="Auto"
                     Margin="0,0,5,0"
+                    Visibility="{Binding Path=UserInstance, Converter={StaticResource NullToVisibility}}"
                     Click="Btn_register_Click" />
+
             <Button x:Name="btn_login"
                     Content="Login"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     FontSize="14"
+                    Visibility="{Binding Path=UserInstance, Converter={StaticResource NullToVisibility}}"
                     Click="Btn_login_Click" />
+
+                    <TextBlock Text="Welcome back, " Name="lbl_welcomemsg" Visibility="Collapsed"
+                       Margin="0,0,6,0" />
+                    <TextBlock Text="{Binding  UserInstance.Username}"
+                                Name="lbl_username" Visibility="Collapsed"
+                                />
         </StackPanel>
         <StackPanel x:Name="pnl_head"
                     VerticalAlignment="Top"

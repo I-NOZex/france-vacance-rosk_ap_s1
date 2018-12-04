@@ -180,7 +180,7 @@ namespace FranceVacance.Code.User
             {
                 if (VEmail == user.Email)
                 { 
-                EmailError = "Email is not available";
+                EmailError = "Username is not available";
                     return false;
                 }
             }

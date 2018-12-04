@@ -3,39 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 using FranceVacance.Code.Common;
+using FranceVacance.Code.Helpers;
+using FranceVacance.Code.Search;
 
 namespace FranceVacance.Code.User {
     public class LoginViewModel : ViewModelBase {
         private string _password { get; set; }
-        private string _email { get; set; }
+        private string _username { get; set; }
+        private string _credentialsError { get; set; }
+
+        public RelayCommand LoginCommand { get; set; }
 
         public string Password {
             get { return _password; }
             set { _password = value; }
         }
 
-        public string Email {
-            get { return _email; }
-            set { _email = value; }
+        public string Username {
+            get { return _username; }
+            set { _username = value; }
         }
+
+        public string CredentialsError {
+            get => _credentialsError;
+            set {
+                _credentialsError = value;
+                OnPropertyChanged("CredentialsError");
+            }
+        }
+
 
         public LoginViewModel() {
             UserViewModel.Instance.LoadData();
-            
+            LoginCommand = new RelayCommand(o => Login());
         }
 
 
 
-        public void Login() {
+        public bool Login() {
             //get login form data
-            UserModel user = UserViewModel.Instance.GetUser(Email, Password);
-            if (user != null)
+            UserModel user = UserViewModel.Instance.GetUser(Username, Password);
+            if (user != null) {
                 UserViewModel.Instance.CurrentUser = user;
-            // if finds the user:
-            //set _userViewModel.Instance.CurrentUser as the matched user
-            // else:
-            // show an error
+                return true;
+            } else {
+                CredentialsError = "Your username or password is incorrect.";
+            }
+            return false;
         }
     }
 }

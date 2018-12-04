@@ -33,24 +33,18 @@
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Username"/>
                 <TextBox TextWrapping="Wrap" PlaceholderText="Enter your username..." Text="{Binding VUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
-            <StackPanel Height="75">
-                <TextBlock Height="25" TextWrapping="Wrap" Text="e-mail"/>
-                <TextBox TextWrapping="Wrap" PlaceholderText="Enter your e-mail..." Text="{Binding VEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
+            
             <StackPanel Height="75">
                 <TextBlock Height="25" TextWrapping="Wrap" Text="Password"/>
                 <PasswordBox  PlaceholderText="Enter your password.." Password="{Binding VPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
-            <StackPanel Height="75">
-                <TextBlock Height="25" TextWrapping="Wrap" Text="Confirm Password"/>
-                <PasswordBox PlaceholderText="Repeat your password.." Password="{Binding VConfirmPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
+           
 
         </StackPanel>
         <Button Content="Create an account" HorizontalAlignment="Left" Margin="10.5,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="35" Width="158" Background="{ThemeResource AccentButtonBackground}" Grid.Column="1"  Command="{Binding CreatingAnAccount}" />
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="14,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="35" Width="158" Background="{ThemeResource AccentButtonBackground}" Grid.Column="2" Click="Btn_Cancel_Click" />
 
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10.5,110,0,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" Height="85" Width="337" FontSize="36" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10.5,110,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Height="85" Width="337" FontSize="36" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Page>

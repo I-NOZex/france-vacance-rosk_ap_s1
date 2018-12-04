@@ -50,6 +50,7 @@
                     VerticalAlignment="Center"
                     Grid.RowSpan="3"
                     Background="{StaticResource MyAcrylicBrush}"
+                    CornerRadius="2"
                     Padding="30,30,30,30">
 
             <StackPanel Grid.Column="1"

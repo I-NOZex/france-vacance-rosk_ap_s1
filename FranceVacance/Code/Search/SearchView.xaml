@@ -12,10 +12,7 @@
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
       xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
-      Background="#FF1B1B1B"
-      HorizontalAlignment="Stretch"
-      VerticalAlignment="Stretch"
-      Width="Auto">
+      Background="#FF1B1B1B">
 
     <Page.Resources>
 
@@ -33,49 +30,59 @@
 
     <Grid Margin="0,0,0,0"
           VerticalAlignment="Stretch"
-          HorizontalAlignment="Stretch">
+          HorizontalAlignment="Stretch"
+          Padding="0,0,0,0">
 
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*" />
-            <RowDefinition Height="25*" />
-            <RowDefinition Height="25*" />
-            <RowDefinition Height="40*" />
+            <RowDefinition Height="180*" />
+            <RowDefinition Height="180*" />
+            <RowDefinition Height="180*" />
+            <RowDefinition Height="180*" />
+            <RowDefinition Height="180*" />
+            <RowDefinition Height="180*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15*" />
-            <ColumnDefinition Width="20*" />
-            <ColumnDefinition Width="20*" />
-            <ColumnDefinition Width="20*" />
-            <ColumnDefinition Width="20*" />
-            <ColumnDefinition Width="15*" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="160" />
+            <ColumnDefinition Width="160" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
 
         <Image Source="ms-appx:///Assets/france_flag_bg.jpg"
                Grid.Row="0"
-               Grid.RowSpan="4"
-               Grid.ColumnSpan="6"
-               HorizontalAlignment="Stretch"
-               VerticalAlignment="Stretch"
+               Grid.RowSpan="6"
+               Grid.ColumnSpan="12"
                Margin="0,0,0,0"
                Opacity="1"
                Name="BgImage"
                Stretch="Fill" />
         <StackPanel Grid.Row="0"
-                    Grid.RowSpan="4"
-                    Grid.ColumnSpan="6"
-                    Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush   }"
-                    Grid.Column="0" />
+                    Grid.RowSpan="6"
+                    Grid.ColumnSpan="12"
+                    Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,0,0"
+                    VerticalAlignment="Stretch" />
 
 
         <StackPanel x:Name="pnl_loginregister"
-                    HorizontalAlignment="Stretch"
                     VerticalAlignment="Top"
                     Grid.Column="1"
                     Orientation="Horizontal"
                     Grid.RowSpan="1"
-                    Grid.ColumnSpan="4">
+                    Grid.ColumnSpan="10"
+                    Margin="0,0,0,0">
 
             <Button x:Name="btn_register"
                     Content="Registration"
@@ -95,21 +102,23 @@
                     Visibility="{Binding Path=UserInstance, Converter={StaticResource NullToVisibility}}"
                     Click="Btn_login_Click" />
 
-                    <TextBlock Text="Welcome back, " Name="lbl_welcomemsg" Visibility="Collapsed"
+            <TextBlock Text="Welcome back, "
+                       Name="lbl_welcomemsg"
+                       Visibility="Collapsed"
                        Margin="0,0,6,0" />
-                    <TextBlock Text="{Binding  UserInstance.Username}"
-                                Name="lbl_username" Visibility="Collapsed"
-                                />
+            <TextBlock Text="{Binding  UserInstance.Username}"
+                       Name="lbl_username"
+                       Visibility="Collapsed" />
         </StackPanel>
         <StackPanel x:Name="pnl_head"
-                    VerticalAlignment="Top"
+                    VerticalAlignment="Bottom"
                     Grid.Row="1"
-                    Grid.ColumnSpan="4"
+                    Grid.ColumnSpan="10"
                     Grid.Column="1"
-                    Margin="1,17,0,0"
+                    Margin="0,0,0,15"
                     Grid.RowSpan="1"
-                    Padding="10,10,10,10"
-                    HorizontalAlignment="Stretch">
+                    Padding="0,0,0,0"
+                    Orientation="Vertical">
             <TextBlock x:Name="lbl_title"
                        Text="France Vacance Travel Agency"
                        TextWrapping="Wrap"
@@ -131,10 +140,14 @@
         </StackPanel>
         <Grid x:Name="grd_filters"
               Grid.Column="1"
-              Margin="0,0,0,-1"
+              Margin="0,0,15,15"
               Grid.Row="2"
-              Grid.ColumnSpan="2"
-              Grid.RowSpan="2">
+              Grid.ColumnSpan="3"
+              Grid.RowSpan="4"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"
+              Background="{StaticResource MyAcrylicBrush}"
+              Padding="15,15,15,15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"
                                MinHeight="0" />
@@ -145,31 +158,29 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150" />
-                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="50*" />
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="pnl_checkin"
-                        Margin="0,0,0,0"
-                        VerticalAlignment="Center"
+                        Margin="0,0,0,15"
+                        VerticalAlignment="Top"
                         Padding="10,0,5,0"
                         Grid.ColumnSpan="1"
                         HorizontalAlignment="Stretch">
                 <TextBlock x:Name="lbl_checkin"
                            Text="Check-in Date"
-                           Padding="0,0,0,20"
                            VerticalAlignment="Top"
                            Height="25" />
                 <CalendarDatePicker Date="{Binding SearchAccommodation.CheckIn, Mode=TwoWay}"
                                     x:Name="cbox_checkin"
                                     HorizontalAlignment="Stretch"
                                     MaxDate="{Binding ElementName=cbox_checkout, Path=Date, Converter={StaticResource DateOperationsConverter}, ConverterParameter=SubtractOneDay}"
-                                    Margin="0,5,0,5"
                                     VerticalAlignment="Top"
                                     DateFormat="{}{month.integer}/{day.integer}/{year.full}" />
             </StackPanel>
             <StackPanel x:Name="pnl_checkout"
-                        Margin="0,0,0,0"
-                        VerticalAlignment="Center"
+                        Margin="0,0,0,15"
+                        VerticalAlignment="Top"
                         Padding="10,0,5,0"
                         Grid.ColumnSpan="1"
                         Grid.Column="1"
@@ -177,22 +188,19 @@
                 <TextBlock x:Name="lbl_checkout"
                            Text="Check-out Date"
                            HorizontalAlignment="Stretch"
-                           Margin="0,0,0,0"
                            VerticalAlignment="Stretch"
                            TextAlignment="Left"
-                           Padding="0,0,0,20"
                            Height="25" />
                 <CalendarDatePicker Date="{Binding SearchAccommodation.CheckOut, Mode=TwoWay}"
                                     x:Name="cbox_checkout"
                                     HorizontalAlignment="Stretch"
-                                    Margin="0,5,0,5"
                                     VerticalAlignment="Top"
                                     MinDate="{Binding ElementName=cbox_checkin, Path=Date , Converter={StaticResource DateOperationsConverter}, ConverterParameter=AddOneDay}"
                                     Padding="0,0,0,0"
                                     DateFormat="{}{month.integer}/{day.integer}/{year.full}" />
             </StackPanel>
             <StackPanel x:Name="pnl_price"
-                        Margin="0,0,0,0"
+                        Margin="0,0,0,15"
                         VerticalAlignment="Center"
                         Grid.Column="0"
                         Padding="10,0,5,0"
@@ -204,14 +212,12 @@
                            TextWrapping="Wrap"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch"
-                           Padding="0,0,0,20"
                            Height="25" />
                 <Slider ThumbToolTipValueConverter="{StaticResource CurrencyToDkkConverter}"
                         Value="{Binding SearchAccommodation.SelectedMaxPrice, Mode=TwoWay}"
                         Maximum="{ Binding SearchAccommodation.MaxPrice}"
                         x:Name="slide_price"
                         HorizontalAlignment="Stretch"
-                        Margin="0,0,0.2,0"
                         VerticalAlignment="Center"
                         FontSize="24"
                         Padding="0,0,0,0"
@@ -236,13 +242,14 @@
             </StackPanel>
         </Grid>
         <ListView ItemsSource="{Binding AccommodationsFiltered.Accommodations, Mode=TwoWay}"
-                  Margin="0,0,0,0"
+                  Margin="15,0,0,15"
                   Grid.Row="2"
-                  Grid.Column="3"
-                  Grid.RowSpan="2"
-                  Grid.ColumnSpan="2"
-                  HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch">
+                  Grid.Column="4"
+                  Grid.RowSpan="4"
+                  Grid.ColumnSpan="7"
+                  VerticalContentAlignment="Stretch"
+                  Background="{StaticResource MyAcrylicBrush}"
+                  Padding="15,15,15,15">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="5,5,5,5"

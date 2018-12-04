@@ -43,13 +43,15 @@
         <StackPanel Grid.Row="0"
                     Grid.RowSpan="4"
                     Grid.ColumnSpan="6"
-                    Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush   }"
-                    Grid.Column="0" />
+                    Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}"
+                    Grid.Column="0"
+                    Padding="5,0,0,0" />
 
         <StackPanel Grid.Column="1"
                     Grid.Row="0"
                     VerticalAlignment="Center"
                     Background="{StaticResource MyAcrylicBrush}"
+                    CornerRadius="2"
                     Padding="30,30,30,30"
                     Grid.RowSpan="3">
             <StackPanel Grid.Column="1"

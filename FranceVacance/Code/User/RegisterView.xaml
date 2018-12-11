@@ -9,11 +9,11 @@
       RequestedTheme="Dark"
       Background="#FF1B1B1B">
 
-    <Grid>
+    <Page.DataContext>
+        <user:RegisterUserViewModel />
+    </Page.DataContext>
 
-        <Grid.DataContext>
-            <user:RegisterUserViewModel />
-        </Grid.DataContext>
+    <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -102,7 +102,7 @@
                             Margin="0,0,0,5">
                     <TextBlock Height="25"
                                TextWrapping="Wrap"><Run Text="Password" /><Run Text=":" /></TextBlock>
-                    <PasswordBox  PlaceholderText="Enter your password.."
+                    <PasswordBox  PlaceholderText="Enter your password..."
                                   Password="{Binding VPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock Margin="0,0,0,0"
                                Text="{Binding PassError}"
@@ -113,7 +113,7 @@
                             Margin="0,0,0,5">
                     <TextBlock Height="25"
                                TextWrapping="Wrap"><Run Text="Confirm Password" /><Run Text=":" /></TextBlock>
-                    <PasswordBox PlaceholderText="Repeat your password.."
+                    <PasswordBox PlaceholderText="Repeat your password..."
                                  Password="{Binding VConfirmPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock Margin="0,0,0,0"
                                Text="{Binding ConfirmPassError}"
@@ -139,7 +139,7 @@
                         Height="35"
                         Background="{ThemeResource AccentButtonBackground}"
                         Grid.Column="0"
-                        Command="{Binding CreatingAnAccount}" />
+                        Click="Button_Click" />
 
                 <Button Content="Cancel"
                         HorizontalAlignment="Stretch"

@@ -109,7 +109,7 @@ namespace FranceVacance.Code.User
         public RegisterUserViewModel()
         {
             UserViewModel.Instance.LoadData();
-            CreatingAnAccount = new RelayCommand(AddUser);
+            CreatingAnAccount = new RelayCommand(o => AddUser());
             VUsername = "";
             VConfirmPass = "";
             VEmail = "";
@@ -188,11 +188,11 @@ namespace FranceVacance.Code.User
             return true;
         }
 
-        private void AddUser()
+        public bool AddUser()
         {
             var UserVmInstance = UserViewModel.Instance;
-
-            if (ValidateData())
+            bool isValid = ValidateData();
+            if (isValid)
             {
                 UserModel newUser = new UserModel(VUsername, VPass, VEmail);
 
@@ -200,6 +200,7 @@ namespace FranceVacance.Code.User
                 UserVmInstance.SaveData();
             }
 
+            return isValid;
         }
 
     }

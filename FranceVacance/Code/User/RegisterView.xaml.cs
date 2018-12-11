@@ -34,6 +34,13 @@ namespace FranceVacance.Code.User
             Frame.Navigate(typeof(SearchView), null, new DrillInNavigationTransitionInfo());
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            var VM = (this.DataContext as RegisterUserViewModel);
+            if (VM.AddUser()) {
+                Frame.Navigate(typeof(SearchView), UserViewModel.Instance.CurrentUser);
+            }
+        }
+
         //private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         //{
         //    throw new NotImplementedException();

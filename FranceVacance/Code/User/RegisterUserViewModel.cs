@@ -190,6 +190,7 @@ namespace FranceVacance.Code.User
 
         public bool AddUser()
         {
+
             var UserVmInstance = UserViewModel.Instance;
             bool isValid = ValidateData();
             if (isValid)

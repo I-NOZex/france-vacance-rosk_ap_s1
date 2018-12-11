@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -31,7 +31,7 @@ namespace FranceVacance.Code.User {
 
 
         public async Task LoadData(bool force = false) {
-            if (RegisteredUsers.Count == 0 || force)
+            if (RegisteredUsers == null || RegisteredUsers.Count == 0 || force)
                 RegisteredUsers = await _userService.LoadDataAsync();
         }
 

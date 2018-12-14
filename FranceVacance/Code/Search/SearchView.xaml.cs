@@ -4,6 +4,7 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using FranceVacance.Code.User;
 using Microsoft.Toolkit.Uwp.UI.Animations;
+using FranceVacance.Code.Accommodation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -82,6 +83,12 @@ namespace FranceVacance.Code.Search
                 byAddress: VM.SearchAccommodation.Address.Length > 0,
                 byDate: true
             );
+        }
+
+        private void Btn_addAccommodation_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AccommodationForm), null, new DrillInNavigationTransitionInfo());
+
         }
     }
 }

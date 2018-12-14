@@ -45,7 +45,8 @@ namespace FranceVacance.Code.User
         //{
         //    throw new NotImplementedException();
         //}
-    }
+        
+}
 
 
 

@@ -40,6 +40,11 @@ namespace FranceVacance.Code.Accommodation {
             await _accommodationService.SaveDataAsync(Accommodations);
         }
 
+        internal bool AcommodationForm()
+        {
+            throw new NotImplementedException();
+        }
+
         public AccommodationViewModel() {
             _accommodationService = new AccommodationService();
             Accommodations = new ObservableCollection<AccommodationModel>();

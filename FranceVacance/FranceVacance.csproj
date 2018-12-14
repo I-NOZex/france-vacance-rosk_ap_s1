@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Code\Accommodation\AccommodationForm.xaml.cs">
+      <DependentUpon>AccommodationForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Code\Accommodation\AccommodationService.cs" />
     <Compile Include="Code\Booking\BookingModelConverter.cs" />
     <Compile Include="Code\Booking\BookingService.cs" />
@@ -192,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Code\Accommodation\AccommodationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Code\Search\SearchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -271,7 +271,7 @@
          
         </Grid>
         <ListView ItemsSource="{Binding AccommodationsFiltered.Accommodations, Mode=TwoWay}"
-                  Margin="15,15,0,15"
+                  Margin="15,15,0,60"
                   Grid.Row="1"
                   Grid.Column="4"
                   Grid.RowSpan="5"
@@ -320,10 +320,11 @@
             </ListView.ItemTemplate>
         </ListView>
 
-
-
-
-
+        <Button   Name="btn_addAccommodation"
+                  Grid.Row="1"
+                  Grid.Column="4"
+                  Grid.RowSpan="5"
+                  Grid.ColumnSpan="7" Content="Add Accommmodation" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="15,15,0,15" Click="Btn_addAccommodation_Click"></Button>
 
     </Grid>
 </Page>

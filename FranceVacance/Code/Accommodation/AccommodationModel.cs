@@ -41,6 +41,11 @@ namespace FranceVacance.Code.Accommodation {
             set { _rating = value; }
         }
 
+        public AccommodationModel()
+        {
+                
+        }
+
 
     }
 }

@@ -149,7 +149,7 @@ namespace FranceVacance.Code.User
             EmailError = "";
             PassError = "";
 
-            //check if the email is valid
+            //check if the username is valid
             if (StringValidator(VUsername) == false)
             {
                 UserError = "Enter valid username";
@@ -180,7 +180,7 @@ namespace FranceVacance.Code.User
             {
                 if (VEmail == user.Email)
                 { 
-                EmailError = "Username is not available";
+                EmailError = "Email is not available";
                     return false;
                 }
             }

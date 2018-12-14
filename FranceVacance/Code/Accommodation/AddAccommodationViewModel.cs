@@ -10,7 +10,7 @@ using FranceVacance.Code.User;
 
 namespace FranceVacance.Code.Accommodation
 {
-    public class VmCreatingAccommodation : ViewModelBase
+    public class AddAccommodationViewModel : ViewModelBase
     {
         private string _vname;
         private double _vprice;
@@ -49,7 +49,7 @@ namespace FranceVacance.Code.Accommodation
             }
         }
 
-        public VmCreatingAccommodation()
+        public AddAccommodationViewModel()
         {
            Creatingaccommodation =new RelayCommand(AddAccommodation);
            _accommodationService = new AccommodationService();

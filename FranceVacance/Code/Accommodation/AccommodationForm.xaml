@@ -5,10 +5,15 @@
     xmlns:local="using:FranceVacance.Code.Accommodation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:accommodation="using:FranceVacance.Code.Accommodation"
     mc:Ignorable="d"
     RequestedTheme="Dark"
     Background="#FF1B1B1B">
 
+    <Page.DataContext>
+        <accommodation:AddAccommodationViewModel></accommodation:AddAccommodationViewModel>
+    </Page.DataContext>
+    
     <Grid Margin="0,0,0,0"
           VerticalAlignment="Stretch"
           HorizontalAlignment="Stretch"
@@ -175,6 +180,7 @@
                         Padding="10,0,5,0"/>
             <TextBlock HorizontalAlignment="Left" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="25" Margin="10,5,0,0" Width="394"/>
             <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="31" Margin="10,38,0,0" Text="" VerticalAlignment="Top" Width="371"/>
+            <Button Content="Save" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" Command="{Binding }"/>
 
 
 
@@ -197,7 +203,7 @@
 
             <Image x:Name="img_accommodation" Grid.ColumnSpan="2" Margin="0,0,0,1" Stretch="Fill" Source="/Assets/SmallTile.png"/>
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Orientation="Horizontal" Grid.Row="1" Grid.Column="1" FlowDirection="RightToLeft">
-                <Button Content="Upload" HorizontalAlignment="Right" Height="45" Margin="15,0,0,0" VerticalAlignment="Center" Background="{ThemeResource AccentButtonBackground}" Click="Button_Click"/>
+                <Button Content="Select file" HorizontalAlignment="Right" Height="45" Margin="15,0,0,0" VerticalAlignment="Center" Background="{ThemeResource AccentButtonBackground}" Click="Button_Click"/>
                 <Button Content="Cancel" HorizontalAlignment="Right" Height="45" Margin="15,0,15,0" VerticalAlignment="Center" Click="Button_Click_1"/>
                 
             </StackPanel>

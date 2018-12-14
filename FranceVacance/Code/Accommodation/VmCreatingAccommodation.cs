@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,15 +10,15 @@ using FranceVacance.Code.User;
 
 namespace FranceVacance.Code.Accommodation
 {
-    class VmCreatingAccommodation : ViewModelBase
+    public class VmCreatingAccommodation : ViewModelBase
     {
         private string _vname;
         private double _vprice;
         private string _vaddress;
         private AccommodationService _accommodationService;
         private AccommodationModel _accommodationModel;
-        private RelayCommand Creatingaccommodation { get; set; }
-
+        public RelayCommand Creatingaccommodation { get; set; }
+        public ObservableCollection<AccommodationModel> AccommodationModelList;
         public string Vname
         {
             get { return _vname; }
@@ -51,23 +52,34 @@ namespace FranceVacance.Code.Accommodation
         public VmCreatingAccommodation()
         {
            Creatingaccommodation =new RelayCommand(AddAccommodation);
-            Vprice = Convert.ToDouble("");
-            Vaddress = "";
-            Vname = "";
+           _accommodationService = new AccommodationService();
+            LoadData();
 
+        }
+        public async Task LoadData(bool force = false)
+        {
+            if (AccommodationModelList == null || AccommodationModelList.Count == 0 || force)
+                AccommodationModelList = await _accommodationService.LoadDataAsync();
 
+        }
+        public async Task SaveData()
+        {
+            await _accommodationService.SaveDataAsync(AccommodationModelList);
         }
 
         private void AddAccommodation()
         {
-            var accomodation=AccommodationViewModel.FirstInstance;
-            if (ValidateData())
+            
+            if (true)
             {
                 AccommodationModel newAccommodation=new AccommodationModel();
-                newAccommodation.Price = Vprice;
+                newAccommodation.Price = Vprice; 
                 newAccommodation.Address = Vaddress;
                 newAccommodation.Name = Vname;
-        
+                AccommodationModelList.Add(newAccommodation);
+                SaveData();
+
+
 
             }
         }

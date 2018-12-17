@@ -29,10 +29,13 @@ namespace FranceVacance.Code.User {
             set { _email = value; }
         }
 
-        public UserRole  Role
-        {
+        public UserRole Role {
             get { return _role; }
             set { _role = value; }
+        }
+
+        public bool IsAdmin {
+            get { return Role.Equals(UserRole.Admin); }
         }
 
         public UserModel(string username, string password, string email) {

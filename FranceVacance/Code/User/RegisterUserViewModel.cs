@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -25,6 +26,8 @@ namespace FranceVacance.Code.User
         private UserService _userService;
         private UserModel _userModel;
         public RelayCommand CreatingAnAccount { get; set; }
+
+        public bool SetAsAdmin { get; set; }
 
         public string VUsername
         {
@@ -114,7 +117,7 @@ namespace FranceVacance.Code.User
             VConfirmPass = "";
             VEmail = "";
             VPass = "";
-
+            SetAsAdmin = false;
         }
 
         public bool StringValidator(string input)
@@ -196,7 +199,7 @@ namespace FranceVacance.Code.User
             if (isValid)
             {
                 UserModel newUser = new UserModel(VUsername, VPass, VEmail);
-
+                newUser.Role = SetAsAdmin ? UserRole.Admin : UserRole.Customer;
                 UserVmInstance.RegisteredUsers.Add(newUser);
                 UserVmInstance.SaveData();
             }

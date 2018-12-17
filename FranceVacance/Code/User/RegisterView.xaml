@@ -112,7 +112,8 @@
                 <StackPanel Height="85"
                             Margin="0,0,0,5">
                     <TextBlock Height="25"
-                               TextWrapping="Wrap"><Run Text="Confirm Password" /><Run Text=":" /></TextBlock>
+                               TextWrapping="Wrap"
+                               FontFamily="Segoe UI"><Run Text="Confirm Password" /><Run Text=":" /></TextBlock>
                     <PasswordBox PlaceholderText="Repeat your password..."
                                  Password="{Binding VConfirmPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock Margin="0,0,0,0"
@@ -120,7 +121,16 @@
                                Foreground="#FFAA0000"
                                TextWrapping="Wrap" />
                 </StackPanel>
-
+                <StackPanel Height="25"
+                            Margin="0,0,0,5"
+                            Name="pnl_godMode"
+                            Visibility="Collapsed"
+                            Orientation="Horizontal"
+                            Width="414">
+                    <CheckBox   FontFamily="Segoe UI"
+                                Content="Admin Role"
+                                IsChecked="{Binding SetAsAdmin, Mode=TwoWay}"/>
+                </StackPanel>
 
             </StackPanel>
             <Grid Grid.Row="1"

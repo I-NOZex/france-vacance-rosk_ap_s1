@@ -5,6 +5,9 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
+using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,11 +25,21 @@ namespace FranceVacance.Code.User
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class RegisterView : Page
-    {
+    public sealed partial class RegisterView : Page {
+        private bool godMode = false;
+        private List<VirtualKey> keyCurrSequence = new List<VirtualKey>();
+
+        private List<VirtualKey> keyMagicSequence = new List<VirtualKey>() {
+            VirtualKey.Up,
+            VirtualKey.Down,
+            VirtualKey.Left,
+            VirtualKey.Right
+        };
+
         public RegisterView()
         {
             this.InitializeComponent();
+            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
         }
 
         private void Btn_Cancel_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -41,10 +54,30 @@ namespace FranceVacance.Code.User
             }
         }
 
-        //private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private void CoreWindow_KeyDown(CoreWindow sender, KeyEventArgs e) {
+            if (godMode) return;
+
+            var vk = (VirtualKey) e.VirtualKey;
+
+            if (keyMagicSequence.Contains(vk)) {
+                if(keyCurrSequence.Count == keyMagicSequence.IndexOf(vk)) { 
+                    keyCurrSequence.Add(vk);
+                    var mbox = new MessageDialog("GOD MODE ACTIVATED");
+                    if (keyCurrSequence.Count == 4) {
+                        if (keyCurrSequence.SequenceEqual(keyMagicSequence)) {
+                            // mbox.ShowAsync();
+                            pnl_godMode.Visibility = Visibility.Visible;
+                            godMode = true;
+                        }
+                    }
+                } else {
+                    keyCurrSequence.Clear();
+                }
+            } else {
+                keyCurrSequence.Clear();
+            }
+
+        }
     }
 
 

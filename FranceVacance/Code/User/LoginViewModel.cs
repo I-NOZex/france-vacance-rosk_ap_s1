@@ -45,12 +45,16 @@ namespace FranceVacance.Code.User {
         public bool Login() {
             //get login form data
             UserModel user = UserViewModel.Instance.GetUser(Username, Password);
-            if (user != null) {
+
+            if (user == null) {
+                CredentialsError = "Your username or password is incorrect.";
+            } else if(!Enum.IsDefined(typeof(UserRole), user.Role) || user.Role.Equals(UserRole.Inactive)) {
+                CredentialsError = "You don't have permissions to access this.";
+            } else {
                 UserViewModel.Instance.CurrentUser = user;
                 return true;
-            } else {
-                CredentialsError = "Your username or password is incorrect.";
             }
+
             return false;
         }
     }

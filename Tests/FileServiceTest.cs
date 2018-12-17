@@ -64,6 +64,7 @@ namespace Tests {
         [TestMethod]
         public async Task Save_BookingModel() {
             BookingService _bookingService = new BookingService();
+            AccommodationService _accommodationService = new AccommodationService();
 
             //generate 10 accommodations
             ObservableCollection<AccommodationModel> Accommodations = GenerateAccommodationCollection(10);
@@ -77,13 +78,15 @@ namespace Tests {
             Bookings.ElementAt(3).Accommodation = Accommodations.ElementAt(9);
 
             //save to file
+            await _accommodationService.SaveDataAsync(Accommodations);
             await _bookingService.SaveDataAsync(Bookings);
             //load file
+            await AccommodationViewModel.FirstInstance.LoadData();
             ObservableCollection<BookingModel> bookingsInFile = await _bookingService.LoadDataAsync();
 
             Assert.AreEqual(Bookings.Count, bookingsInFile.Count);
 
-            foreach (var b in bookingsInFile) {
+            foreach (var b in bookingsInFile) { 
                 var expected = Bookings.First(o => o.Id == b.Id);
                 var actual = bookingsInFile.First(o => o.Id == b.Id);
 

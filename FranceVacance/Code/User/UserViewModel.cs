@@ -52,10 +52,7 @@ namespace FranceVacance.Code.User {
                     }
                 }
             }
-            //the same email and password as inputed in the form
-            //if there's a match:
-            //return the match
-            //else
+
             return null;
         }
 

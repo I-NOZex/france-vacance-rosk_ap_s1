@@ -40,6 +40,11 @@ namespace FranceVacance.Code.Search {
             Frame.Navigate(typeof(LoginView), null, new DrillInNavigationTransitionInfo());
         }
 
+        private void Btn_logout_Click(object sender, RoutedEventArgs e) {
+            UserViewModel.Instance.Logout();
+            Frame.Navigate(typeof(SearchView), null, new DrillInNavigationTransitionInfo());
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e) {
             var VM = (this.DataContext as SearchViewModel);
 
@@ -48,13 +53,23 @@ namespace FranceVacance.Code.Search {
                 if (!string.IsNullOrEmpty(userModel.Username) &&
                     !string.IsNullOrEmpty(userModel.Email)) {
                     if (VM != null) VM.UserInstance = userModel;
+
                     lbl_username.Visibility = Visibility.Visible;
                     lbl_welcomemsg.Visibility = Visibility.Visible;
+                    btn_logout.Visibility = Visibility.Visible;
+
                     btn_login.Visibility = Visibility.Collapsed;
                     btn_register.Visibility = Visibility.Collapsed;
                 }
             } else {
                 if (VM != null) VM.UserInstance = null;
+
+                lbl_username.Visibility = Visibility.Collapsed;
+                lbl_welcomemsg.Visibility = Visibility.Collapsed;
+                btn_logout.Visibility = Visibility.Collapsed;
+
+                btn_login.Visibility = Visibility.Visible;
+                btn_register.Visibility = Visibility.Visible;
             }
             base.OnNavigatedTo(e);
         }
@@ -82,7 +97,7 @@ namespace FranceVacance.Code.Search {
 
         private void Btn_addAccommodation_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(AccommodationForm), null, new DrillInNavigationTransitionInfo());
+            Frame.Navigate(typeof(AccommodationForm), UserViewModel.Instance.CurrentUser, new DrillInNavigationTransitionInfo());
 
         }
     }

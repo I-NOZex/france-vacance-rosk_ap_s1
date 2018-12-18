@@ -10,6 +10,7 @@ namespace FranceVacance.Code.Accommodation {
         private double _price { get; set; }
         private int _numberOfRooms { get; set; }
         private int _rating { get; set; }
+        private string _photo { get; set; }
 
         public int Id {
             get { return _id; }
@@ -39,6 +40,11 @@ namespace FranceVacance.Code.Accommodation {
         public int Rating {
             get { return _rating; }
             set { _rating = value; }
+        }
+
+        public string Photo {
+            get { return _photo ?? "ms-appx:///Assets/Square150x150Logo.scale-100.png"; }
+            set { _photo = value; }
         }
 
         public AccommodationModel()

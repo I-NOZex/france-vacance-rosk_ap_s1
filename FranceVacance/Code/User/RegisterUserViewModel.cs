@@ -122,7 +122,7 @@ namespace FranceVacance.Code.User
 
         public bool StringValidator(string input)
         {
-            string pattern = "[a-zA-Z]";
+            string pattern = "^([a-zA-Z0-9]+)$";
             if (Regex.IsMatch(input, pattern))
             {
                 return true;
@@ -135,7 +135,7 @@ namespace FranceVacance.Code.User
 
         public bool EmailValidator(string input)
         {
-            string pattern = "[\\w-]+@([\\w-]+\\.)+[\\w-]+";
+            string pattern = "^([\\w-]+@([\\w-]+\\.)+[\\w-]+)$";
             if (Regex.IsMatch(input, pattern))
             {
                 return true;
@@ -184,6 +184,11 @@ namespace FranceVacance.Code.User
                 if (VEmail == user.Email)
                 { 
                 EmailError = "Email is not available";
+                    return false;
+                }
+
+                if (VUsername == user.Username) {
+                    UserError = "Username is not available";
                     return false;
                 }
             }

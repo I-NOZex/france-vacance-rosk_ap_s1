@@ -41,12 +41,16 @@ namespace FranceVacance.Code.User
             }
         }
 
+        private void Btn_register_Click(object sender, RoutedEventArgs e) {
+            Frame.Navigate(typeof(RegisterView), null, new DrillInNavigationTransitionInfo());
+        }
+
         //private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         //{
         //    throw new NotImplementedException();
         //}
-        
-}
+
+    }
 
 
 

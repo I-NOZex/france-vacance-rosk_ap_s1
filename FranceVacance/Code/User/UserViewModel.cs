@@ -56,5 +56,9 @@ namespace FranceVacance.Code.User {
             return null;
         }
 
+        public void Logout() {
+            this.CurrentUser = new UserModel();
+        }
+
     }
 }

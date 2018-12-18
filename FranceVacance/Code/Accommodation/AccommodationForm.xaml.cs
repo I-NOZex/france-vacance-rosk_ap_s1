@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -16,6 +17,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using FranceVacance.Code.User;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,34 +35,20 @@ namespace FranceVacance.Code.Accommodation
 
         private void Btn_addAccommodation_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(AccommodationForm), null, new DrillInNavigationTransitionInfo());
+            Frame.Navigate(typeof(AccommodationForm), UserViewModel.Instance.CurrentUser, new DrillInNavigationTransitionInfo());
 
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-                    }
-
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
 
        
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_cancel_Click(object sender, RoutedEventArgs e)
         {
-         //   var VM = (this.DataContext as AccommodationViewModel );
-           // if (VM. AcommodationForm ())
-            //{
-                Frame.Navigate(typeof(SearchView));
-            //}
-            
-
-
+                Frame.Navigate(typeof(SearchView), UserViewModel.Instance.CurrentUser, new DrillInNavigationTransitionInfo());
         }
 
-        private async Task pickFile()
-        {
+        private async Task pickFile() {
+            AddAccommodationViewModel VM = DataContext as AddAccommodationViewModel;
+
             var picker = new Windows.Storage.Pickers.FileOpenPicker();
             picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
             picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
@@ -79,15 +67,36 @@ namespace FranceVacance.Code.Accommodation
                     var bitmapImage = new Windows.UI.Xaml.Media.Imaging.BitmapImage();
                     await bitmapImage.SetSourceAsync(stream);
                     img_accommodation.Source = bitmapImage;
+                    VM.Photo = file.Path;
                 }
             }
 
         }
 
-        private  void Button_Click(object sender, RoutedEventArgs e)
+        private  void Button_selectFile_Click(object sender, RoutedEventArgs e)
         {
             pickFile();
 
+        }
+
+        private void Btn_save_Click(object sender, RoutedEventArgs e) {
+            save();
+        }
+
+        private async void save() {
+            AddAccommodationViewModel VM = DataContext as AddAccommodationViewModel;
+            bool success = await VM.AddAccommodation();
+            if (success) {
+                Flyout MyFlyout = Resources["FlyoutSuccess"] as Flyout;
+                MyFlyout.ShowAt(btn_save);
+
+                img_accommodation.Source = null;
+            }
+        }
+
+        private void Txt_price_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args) {
+            txt_price.Text = txt_price.Text.Replace(',', '.');
+            txt_price.SelectionStart = txt_price.Text.Length;
         }
     }
 }

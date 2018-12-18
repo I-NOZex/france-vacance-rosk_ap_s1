@@ -82,7 +82,7 @@
                     <TextBlock x:Name="txt_usernameError"
                                Text="{Binding UserError}"
                                TextWrapping="Wrap"
-                               Foreground="#FFAA0000"
+                               Foreground="#FFFF6658"
                                Padding="10,0,10,0" />
                 </StackPanel>
                 <StackPanel Height="85"
@@ -95,7 +95,7 @@
                              Text="{Binding VEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock Margin="0,0,0,0"
                                Text="{Binding EmailError}"
-                               Foreground="#FFAA0000"
+                               Foreground="#FFFF6658"
                                TextWrapping="Wrap" />
                 </StackPanel>
                 <StackPanel Height="85"
@@ -106,7 +106,7 @@
                                   Password="{Binding VPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock Margin="0,0,0,0"
                                Text="{Binding PassError}"
-                               Foreground="#FFAA0000"
+                               Foreground="#FFFF6658"
                                TextWrapping="Wrap" />
                 </StackPanel>
                 <StackPanel Height="85"
@@ -118,7 +118,7 @@
                                  Password="{Binding VConfirmPass, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock Margin="0,0,0,0"
                                Text="{Binding ConfirmPassError}"
-                               Foreground="#FFAA0000"
+                               Foreground="#FFFF6658"
                                TextWrapping="Wrap" />
                 </StackPanel>
                 <StackPanel Height="25"

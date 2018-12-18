@@ -102,8 +102,9 @@
     <Compile Include="Code\Accommodation\AddAccommodationViewModel.cs" />
     <Compile Include="Code\Booking\BookingModelConverter.cs" />
     <Compile Include="Code\Booking\BookingService.cs" />
-    <Compile Include="Code\Helpers\DateOperationsConverter.cs" />
+    <Compile Include="Code\Helpers\BoolToVisibilityWithDefaultValue.cs" />
     <Compile Include="Code\Helpers\CurrencyToDkkConverter.cs" />
+    <Compile Include="Code\Helpers\DateOperationsConverter.cs" />
     <Compile Include="Code\Accommodation\AccommodationViewModel.cs" />
     <Compile Include="Code\Booking\BookingViewModel.cs" />
     <Compile Include="Code\Booking\BookingModel.cs" />

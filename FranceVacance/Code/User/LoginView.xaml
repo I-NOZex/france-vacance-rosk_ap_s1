@@ -69,7 +69,7 @@
             <TextBlock Height="25"
                        TextWrapping="Wrap"
                        Text="{Binding CredentialsError}"
-                       Foreground="#FFAA0000">
+                       Foreground="#FFFF6658">
             </TextBlock>
             <StackPanel Grid.Column="1"
                         HorizontalAlignment="Stretch"
@@ -116,14 +116,15 @@
                         Grid.ColumnSpan="2"
                         Click="Button_Click" />
 
-                <Button Content="Create an account"
+                <Button x:Name="btn_register"
+                        Content="Create an account"
                         HorizontalAlignment="Stretch"
                         Margin="0,0,3,0"
                         VerticalAlignment="Top"
                         Grid.Column="0"
                         Grid.Row="1"
-                        Command="{Binding CreatingAnAccount}"
-                        Background="#DD007ACC" />
+                        Background="#DD007ACC"
+                        Click="Btn_register_Click" />
 
                 <Button Content="Cancel"
                         HorizontalAlignment="Stretch"
